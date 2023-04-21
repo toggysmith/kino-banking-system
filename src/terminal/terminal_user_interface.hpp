@@ -5,9 +5,15 @@
 #include <string>
 #include <string_view>
 
-struct TerminalUserInterface
+class TerminalUserInterface
 {
+public:
   static void show_heading(std::string_view);
+  [[nodiscard]] static std::string_view show_options(
+    const std::vector<const std::string_view>&);
+
+private:
+  [[nodiscard]] static int get_integer_in_range_from_user(int, int);
 };
 
 #endif

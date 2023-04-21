@@ -10,5 +10,10 @@ main()
 
   TerminalUserInterface::show_heading("Hello, world!");
 
+  const std::string_view& selectedOption = TerminalUserInterface::show_options(
+    { "Create account", "Delete account", "Change account details" });
+
+  std::cout << selectedOption << '\n';
+
   return 0;
 }
