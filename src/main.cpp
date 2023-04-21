@@ -5,15 +5,9 @@
 int
 main()
 {
-  access_manager accessManager{};
+  AccessManager access_manager{};
 
-  accessManager.setCurrentUserMode(UserMode::customer);
-
-  const UserMode userMode = accessManager.getCurrentUserMode();
-
-  if (userMode == UserMode::customer) {
-    std::cout << "Customer!!!\n";
-  }
+  access_manager.userPrivilegeLevel = UserPrivilegeLevel::customer;
 
   return 0;
 }
