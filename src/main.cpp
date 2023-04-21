@@ -1,19 +1,20 @@
-#include <iostream>
+#include "terminal/user_interface.hpp"
 
-#include "core/access_manager.hpp"
-#include "terminal/terminal_user_interface.hpp"
+using Terminal::UserInterface;
+
+void
+sign_in_user()
+{
+  const std::string_view& selectedOption = UserInterface::show_options(
+    { "Sign in as customer", "Sign in as administrator" });
+}
 
 int
 main()
 {
-  AccessManager access_manager{ UserPrivilegeLevel::customer };
+  UserInterface::show_heading("Welcome to Kino Banking.");
 
-  TerminalUserInterface::show_heading("Hello, world!");
-
-  const std::string_view& selectedOption = TerminalUserInterface::show_options(
-    { "Create account", "Delete account", "Change account details" });
-
-  std::cout << selectedOption << '\n';
+  sign_in_user();
 
   return 0;
 }
