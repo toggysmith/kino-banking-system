@@ -1,11 +1,13 @@
-#ifndef KINO_TERMINAL_USER_INTERFACE_HPP
-#define KINO_TERMINAL_USER_INTERFACE_HPP
+#ifndef KINO_USER_INTERFACE_HPP
+#define KINO_USER_INTERFACE_HPP
 
 #include <iostream>
 #include <string>
 #include <string_view>
 
-class TerminalUserInterface
+namespace Terminal {
+
+class UserInterface
 {
 public:
   static void show_heading(std::string_view);
@@ -15,5 +17,7 @@ public:
 private:
   [[nodiscard]] static int get_integer_in_range_from_user(int, int);
 };
+
+}
 
 #endif

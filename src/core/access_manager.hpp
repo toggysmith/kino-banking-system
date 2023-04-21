@@ -3,9 +3,13 @@
 
 #include "user_privilege_level.hpp"
 
+namespace Core {
+
 struct AccessManager
 {
   UserPrivilegeLevel userPrivilegeLevel;
 };
+
+}
 
 #endif

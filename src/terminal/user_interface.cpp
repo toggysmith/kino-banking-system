@@ -1,7 +1,9 @@
-#include "terminal_user_interface.hpp"
+#include "user_interface.hpp"
+
+namespace Terminal {
 
 void
-TerminalUserInterface::show_heading(const std::string_view heading)
+UserInterface::show_heading(const std::string_view heading)
 {
   std::cout << std::string(100, '#') << '\n';
   std::cout << "# " << heading << '\n';
@@ -10,8 +12,7 @@ TerminalUserInterface::show_heading(const std::string_view heading)
 }
 
 std::string_view
-TerminalUserInterface::show_options(
-  const std::vector<const std::string_view>& options)
+UserInterface::show_options(const std::vector<const std::string_view>& options)
 {
   for (auto i = 0; i < options.size(); i++) {
     const std::string_view& option = options[i];
@@ -32,9 +33,8 @@ TerminalUserInterface::show_options(
 }
 
 int
-TerminalUserInterface::get_integer_in_range_from_user(
-  const int lower_bound_of_range,
-  const int upper_bound_of_range)
+UserInterface::get_integer_in_range_from_user(const int lower_bound_of_range,
+                                              const int upper_bound_of_range)
 {
   int user_input;
   bool was_user_input_invalid{ true };
@@ -60,4 +60,6 @@ TerminalUserInterface::get_integer_in_range_from_user(
   } while (was_user_input_invalid);
 
   return user_input;
+}
+
 }
