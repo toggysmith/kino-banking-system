@@ -3,4 +3,4 @@ project(kino)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(kino src/main.cpp src/core/user_privilege_level.hpp src/core/access_manager.hpp src/terminal/user_interface.hpp src/terminal/user_interface.cpp)
+add_executable(kino src/main.cpp src/core/user_privilege_level.hpp src/core/access_manager.hpp src/terminal/user_interface.hpp src/terminal/user_interface.cpp src/core/account.cpp src/core/currency.hpp src/core/money.hpp src/core/money.cpp src/core/exchange_rate_manager.hpp src/core/exchange_rate_manager.cpp)

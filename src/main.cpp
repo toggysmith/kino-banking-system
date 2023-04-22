@@ -1,3 +1,7 @@
+#include "core/account.hpp"
+#include "core/currency.hpp"
+#include "core/exchange_rate_manager.hpp"
+#include "core/money.hpp"
 #include "terminal/user_interface.hpp"
 
 using Terminal::UserInterface;
@@ -12,9 +16,19 @@ sign_in_user()
 int
 main()
 {
-  UserInterface::show_heading("Welcome to Kino Banking.");
+  using Core::Account;
+  using Core::Currency;
+  using Core::Money;
 
-  sign_in_user();
+  Account account{Money{Currency::usd, 50}};
+
+  account.deposit(32);
+
+  std::cout << account.get_balance().get_value() << std::endl;
+
+  account.withdraw(17);
+
+  std::cout << account.get_balance().get_value() << std::endl;
 
   return 0;
 }
