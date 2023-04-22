@@ -22,11 +22,9 @@ UserInterface::show_options(const std::vector<const std::string_view>& options)
 
   std::cout << '\n';
 
-  size_t selectedOptionNumber;
-
   std::cout << "Select an option: ";
-  //  std::cin >> selectedOptionNumber;
-  selectedOptionNumber = get_integer_in_range_from_user(1, options.size());
+  size_t selectedOptionNumber =
+    get_integer_in_range_from_user(1, options.size());
   std::cout << '\n';
 
   return options[selectedOptionNumber - 1];
