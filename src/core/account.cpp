@@ -2,8 +2,9 @@
 
 namespace Core {
 
-Account::Account(Money balance)
-  : account_number(Account::total_no_of_accounts++)
+Account::Account(int64_t branch_number, Money balance)
+  : branch_number(branch_number)
+  , account_number(Account::total_no_of_accounts++)
   , balance(balance)
 {
 }
@@ -21,7 +22,13 @@ Account::withdraw(const int64_t amount)
 }
 
 int64_t
-  Account::get_account_number() const
+Account::get_branch_number() const
+{
+  return branch_number;
+}
+
+int64_t
+Account::get_account_number() const
 {
   return account_number;
 }
