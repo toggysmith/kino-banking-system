@@ -4,20 +4,22 @@ namespace Core {
 
 const std::vector<std::pair<const Currency, double>>
   ExchangeRateManager::exchange_rates_from_usd = {
-    { Currency::eur, 0.90114662 }, { Currency::jpy, 6708.1971 },
-    { Currency::gbp, 0.8041834 },  { Currency::cny, 344.67891 },
-    { Currency::aud, 74.719182 },  { Currency::cad, 68.334826 },
-    { Currency::chf, 44.647059 },  { Currency::hkd, 392.50372 },
-    { Currency::sgd, 66.753971 }
+    { Currency::eur, 0.90114662 }, { Currency::jpy, 134.12806 },
+    { Currency::gbp, 0.8041834 },  { Currency::cny, 6.8880315 },
+    { Currency::aud, 1.4933738 },  { Currency::cad, 1.3596194 },
+    { Currency::chf, 0.89232983 }, { Currency::hkd, 7.8487124 },
+    { Currency::sgd, 1.3347096 }
   };
 
 std::pair<bool, double>
 ExchangeRateManager::get_conversion_rate(const Currency& current_currency,
                                          const Currency& desired_currency)
 {
-  bool is_converting_from_usd = (current_currency == Currency::usd);
+  // Option 1: We are doing USD -> X exchange. I.e. we have the exchange to the
+  // desired currency explicitly stored.
+  bool is_usd_to_other = (current_currency == Currency::usd);
 
-  if (is_converting_from_usd) {
+  if (is_usd_to_other) {
     for (auto exchange_rate : exchange_rates_from_usd) {
       auto [to_currency, rate] = exchange_rate;
 
@@ -25,7 +27,13 @@ ExchangeRateManager::get_conversion_rate(const Currency& current_currency,
         return { true, rate };
       }
     }
-  } else {
+  }
+  // Option 2: We are doing X -> USD exchange. I.e. we don't have the exchange
+  // rate to the desired currency explicit stored, but we can get the reciprocal
+  // to work it out.
+  bool is_other_to_usd = (desired_currency == Currency::usd);
+
+  if (is_other_to_usd) {
     for (auto exchange_rate : exchange_rates_from_usd) {
       auto [to_currency, rate] = exchange_rate;
 
@@ -35,11 +43,25 @@ ExchangeRateManager::get_conversion_rate(const Currency& current_currency,
     }
   }
 
-  // INFO: We only reach this point if there wasn't an exchange rate found. This
-  // isn't necessarily fatal because the banking system may just not support
-  // exchanging from / to the given currencies, but the method should be clearly
-  // indicated as having been unsuccessful.
-  return { false, 0 };
+  // Option 3: We are doing X -> Y exchange. I.e. we don't have the exchange
+  // rates for either currency explicitly stored.
+  
+  // Get exchange rate of current currency to USD
+  const auto [success1, current_currency_to_usd_rate] =
+    get_conversion_rate(current_currency, Currency::usd);
+
+  if (!success1)
+    return { false, 0 };
+
+  // Get exchange rate of USD to the desired currency
+  const auto [success2, usd_to_desired_currency_rate] =
+    get_conversion_rate(Currency::usd, desired_currency);
+
+  if (!success2)
+    return { false, 0 };
+
+  // Multiply the two exchange rates together to get the final exchange rate
+  return { true, current_currency_to_usd_rate * usd_to_desired_currency_rate };
 }
 
 }
