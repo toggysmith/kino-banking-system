@@ -30,5 +30,11 @@ main()
 
   std::cout << account.get_balance().get_value() << std::endl;
 
+  std::cout << account.get_account_number() << std::endl;
+
+  Account account2{Money{Currency::gbp, 2523}};
+
+  std::cout << account2.get_account_number() << std::endl;
+
   return 0;
 }
