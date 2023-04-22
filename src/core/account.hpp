@@ -14,12 +14,13 @@ class Account
 public:
   explicit Account(Name, int64_t, Money);
 
-  void deposit(int64_t);
-  void withdraw(int64_t);
+  [[nodiscard]] bool deposit(const Money&);
+  [[nodiscard]] bool withdraw(const Money&);
   [[nodiscard]] int64_t get_branch_number() const;
   [[nodiscard]] int64_t get_account_number() const;
-  [[nodiscard]] Money get_balance() const;
+  [[nodiscard]] const Money& get_balance() const;
   [[nodiscard]] Name get_name() const;
+  bool transfer_to(Account&, const Money&);
 
 private:
   static int64_t total_no_of_accounts;

@@ -12,16 +12,42 @@ Account::Account(Name name, int64_t branch_number, Money balance)
 {
 }
 
-void
-Account::deposit(const int64_t amount)
+bool
+Account::deposit(const Money& amount)
 {
-  balance.add(amount);
+  if (amount.get_currency() == balance.get_currency()) {
+    balance.add(amount.get_value());
+    return true;
+  } else {
+    const auto [success, exchanged_amount] =
+      amount.convert_currency_to(balance.get_currency());
+
+    if (success) {
+      balance.add(exchanged_amount.get_value());
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
-void
-Account::withdraw(const int64_t amount)
+bool
+Account::withdraw(const Money& amount)
 {
-  balance.subtract(amount);
+  if (amount.get_currency() == balance.get_currency()) {
+    balance.subtract(amount.get_value());
+    return true;
+  } else {
+    const auto [success, exchanged_amount] =
+      amount.convert_currency_to(balance.get_currency());
+
+    if (success) {
+      balance.subtract(exchanged_amount.get_value());
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 int64_t
@@ -36,7 +62,7 @@ Account::get_account_number() const
   return account_number;
 }
 
-Money
+const Money&
 Account::get_balance() const
 {
   return balance;
@@ -46,6 +72,22 @@ Name
 Account::get_name() const
 {
   return name;
+}
+
+bool
+Account::transfer_to(Account& account, const Money& amount)
+{
+  bool was_withdrawal_successful = withdraw(amount);
+  bool was_deposit_successful = account.deposit(amount);
+
+  // INFO: Both of the Boolean values above should be the same because the only
+  // way withdrawal or depositing can fail is if there isn't a known exchange
+  // rate between two currencies.
+  assert(was_withdrawal_successful == was_deposit_successful);
+
+  bool was_transfer_successful =
+    was_withdrawal_successful && was_deposit_successful;
+  return was_transfer_successful;
 }
 
 int64_t Account::total_no_of_accounts = 0;
