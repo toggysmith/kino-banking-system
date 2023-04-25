@@ -38,4 +38,13 @@ cd build
 
 # Features
 
-- Accounts, consisting of an account and branch number, a name, and a balance in a specific currency.
+![A summary of interactions within the banking system.](https://user-images.githubusercontent.com/61121030/234404824-8f9fa450-4b20-4746-aaf7-f04049e5d413.png)
+*A high-level summary of interactions within the banking system.*
+
+<a href="https://toggysmith.com">
+  <picture>
+    <source srcset="https://user-images.githubusercontent.com/61121030/234412163-6027c7f8-ffbe-4ebb-b83b-c8ce1941c5b4.png" media="(prefers-color-scheme: dark)" />
+    <source srcset="https://user-images.githubusercontent.com/61121030/234409401-6c9037df-566d-4649-a5cc-12782ada38b5.png" media="(prefers-color-scheme: light)" />
+    <img src="https://user-images.githubusercontent.com/61121030/234409401-6c9037df-566d-4649-a5cc-12782ada38b5.png" width="200" align="right" />
+  </picture>
+</a>
