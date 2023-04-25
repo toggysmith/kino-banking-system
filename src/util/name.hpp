@@ -4,7 +4,7 @@
 #include <string>
 #include <string_view>
 
-namespace Core {
+namespace Util {
 
 class Name
 {

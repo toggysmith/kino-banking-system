@@ -3,9 +3,11 @@
 
 #include <cstdlib>
 
+#include "../util/name.hpp"
 #include "currency.hpp"
 #include "money.hpp"
-#include "name.hpp"
+
+using Util::Name;
 
 namespace Core {
 

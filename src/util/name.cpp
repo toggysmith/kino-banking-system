@@ -1,6 +1,6 @@
 #include "name.hpp"
 
-namespace Core {
+namespace Util {
 
 Name::Name(const std::string_view forename,
            const std::string_view middle_name,
