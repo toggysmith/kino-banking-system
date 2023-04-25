@@ -34,6 +34,9 @@ show_create_customer_menu()
 {
 }
 
+#include "core/customer.hpp"
+#include "util/date.hpp"
+
 void
 show_view_customers_menu()
 {
