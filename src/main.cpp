@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include <iomanip>
 #include <iostream>
 
@@ -49,6 +50,7 @@ show_create_customer_menu()
   int date_of_birth_day;
   int date_of_birth_month;
   int date_of_birth_year;
+  int64_t branch_number;
 
   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
   std::cout << "Enter the forename of the customer: ";
@@ -63,6 +65,8 @@ show_create_customer_menu()
   std::cin >> date_of_birth_month;
   std::cout << "Enter the year the customer was born: ";
   std::cin >> date_of_birth_year;
+  std::cout << "Enter the branch number of the customer: ";
+  std::cin >> branch_number;
 
   const Name name{ forename, middle_names, last_name };
 
@@ -70,7 +74,7 @@ show_create_customer_menu()
                             date_of_birth_month,
                             date_of_birth_year };
 
-  const Customer customer{ name, date_of_birth, 1 };
+  const Customer customer{ name, date_of_birth, branch_number };
 
   customers.push_back(customer);
 
