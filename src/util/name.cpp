@@ -35,4 +35,28 @@ Name::get_last_name() const
            : (std::pair<const bool, const std::string&>{ true, last_name });
 }
 
+std::ostream&
+operator<<(std::ostream& out, const Name& name)
+{
+  std::string final_string = name.get_forename();
+
+  {
+    const auto [success, middle_name] = name.get_middle_name();
+
+    if (success) {
+      final_string += " " + middle_name;
+    }
+  }
+
+  {
+    const auto [success, last_name] = name.get_last_name();
+
+    if (success) {
+      final_string += " " + last_name;
+    }
+  }
+
+  return out << final_string;
+}
+
 }

@@ -24,4 +24,22 @@ Customer::get_accounts() const
   return accounts;
 }
 
+const Name&
+Customer::get_name() const
+{
+  return name;
+}
+
+const Date&
+Customer::get_date_of_birth() const
+{
+  return date_of_birth;
+}
+
+int64_t
+Customer::get_branch_number() const
+{
+  return branch_number;
+}
+
 }

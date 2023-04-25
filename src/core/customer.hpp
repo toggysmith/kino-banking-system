@@ -20,6 +20,10 @@ public:
   void add_account(const Account&);
   [[nodiscard]] const std::vector<Account>& get_accounts() const;
 
+  [[nodiscard]] const Name& get_name() const;
+  [[nodiscard]] const Date& get_date_of_birth() const;
+  [[nodiscard]] int64_t get_branch_number() const;
+
 private:
   const Name name;
   const Date date_of_birth;

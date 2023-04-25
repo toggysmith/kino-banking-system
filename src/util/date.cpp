@@ -12,7 +12,24 @@ Date::Date(const int day, const int month, const int year)
 std::ostream&
 operator<<(std::ostream& out, const Date& date)
 {
-  return out << date.day << "/" << date.month << "/" << date.year;
+  std::string date_str;
+
+  if (date.day < 10) {
+    date_str += "0";
+  }
+
+  date_str += std::to_string(date.day);
+  date_str += "/";
+
+  if (date.month < 10) {
+    date_str += "0";
+  }
+
+  date_str += std::to_string(date.month);
+  date_str += "/";
+  date_str += std::to_string(date.year);
+
+  return out << date_str;
 }
 
 }

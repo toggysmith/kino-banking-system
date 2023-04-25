@@ -1,3 +1,6 @@
+#include <iomanip>
+#include <iostream>
+
 #include "core/customer.hpp"
 #include "terminal/user_interface.hpp"
 #include "util/date.hpp"
@@ -81,6 +84,18 @@ show_create_customer_menu()
 void
 show_view_customers_menu()
 {
+  UserInterface::show_heading("Admin Portal / View Customers");
+
+  std::cout << std::left << std::setw(40) << "Name" << std::setw(20)
+            << "Date of Birth" << std::setw(20) << "Branch Number" << std::endl;
+
+  for (const auto& customer : customers) {
+    std::cout << std::left << std::setw(40) << customer.get_name()
+              << std::setw(20) << customer.get_date_of_birth() << std::setw(20)
+              << customer.get_branch_number() << '\n';
+  }
+
+  std::cout << '\n';
 }
 
 void

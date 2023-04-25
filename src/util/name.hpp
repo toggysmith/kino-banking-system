@@ -1,6 +1,7 @@
 #ifndef KINO_NAME_HPP
 #define KINO_NAME_HPP
 
+#include <ostream>
 #include <string>
 #include <string_view>
 
@@ -15,6 +16,8 @@ public:
   [[nodiscard]] std::pair<const bool, const std::string&> get_middle_name()
     const;
   [[nodiscard]] std::pair<const bool, const std::string&> get_last_name() const;
+
+  friend std::ostream& operator<<(std::ostream&, const Name&);
 
 private:
   const std::string forename;
