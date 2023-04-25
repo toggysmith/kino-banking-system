@@ -15,6 +15,8 @@ public:
     const std::vector<const std::string_view>&);
 
 private:
+  UserInterface();
+
   [[nodiscard]] static int get_integer_in_range_from_user(int, int);
 };
 
