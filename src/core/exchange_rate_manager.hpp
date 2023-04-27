@@ -2,6 +2,7 @@
 #define KINO_EXCHANGE_RATE_MANAGER_HPP
 
 #include <cstdlib>
+#include <optional>
 #include <stdexcept>
 #include <vector>
 
@@ -12,7 +13,7 @@ namespace Core {
 class ExchangeRateManager
 {
 public:
-  [[nodiscard]] static std::pair<bool, double> get_conversion_rate(
+  [[nodiscard]] static std::optional<double> get_conversion_rate(
     const Currency&,
     const Currency&);
 

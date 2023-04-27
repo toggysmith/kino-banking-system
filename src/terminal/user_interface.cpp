@@ -60,6 +60,4 @@ UserInterface::get_integer_in_range_from_user(const int lower_bound_of_range,
   return user_input;
 }
 
-UserInterface::UserInterface() {}
-
 }

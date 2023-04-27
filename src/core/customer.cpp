@@ -2,7 +2,7 @@
 
 namespace Core {
 
-Customer::Customer(const Name name,
+Customer::Customer(Name name,
                    const Date date_of_birth,
                    const int64_t branch_number)
 

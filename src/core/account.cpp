@@ -19,11 +19,11 @@ Account::deposit(const Money& amount)
     balance.add(amount.get_value());
     return true;
   } else {
-    const auto [success, exchanged_amount] =
+    const auto exchanged_amount =
       amount.convert_currency_to(balance.get_currency());
 
-    if (success) {
-      balance.add(exchanged_amount.get_value());
+    if (exchanged_amount) {
+      balance.add(exchanged_amount->get_value());
       return true;
     } else {
       return false;
@@ -38,11 +38,11 @@ Account::withdraw(const Money& amount)
     balance.subtract(amount.get_value());
     return true;
   } else {
-    const auto [success, exchanged_amount] =
+    const auto exchanged_amount =
       amount.convert_currency_to(balance.get_currency());
 
-    if (success) {
-      balance.subtract(exchanged_amount.get_value());
+    if (exchanged_amount) {
+      balance.subtract(exchanged_amount->get_value());
       return true;
     } else {
       return false;

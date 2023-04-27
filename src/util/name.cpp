@@ -17,22 +17,24 @@ Name::get_forename() const
   return forename;
 }
 
-std::pair<const bool, const std::string&>
+std::optional<std::string>
 Name::get_middle_name() const
 {
   if (middle_name.empty()) {
-    return { false, middle_name };
+    return std::nullopt;
   } else {
-    return { true, middle_name };
+    return middle_name;
   }
 }
 
-std::pair<const bool, const std::string&>
+std::optional<std::string>
 Name::get_last_name() const
 {
-  return (last_name.empty())
-           ? (std::pair<const bool, const std::string&>{ false, last_name })
-           : (std::pair<const bool, const std::string&>{ true, last_name });
+  if (last_name.empty()) {
+    return std::nullopt;
+  } else {
+    return last_name;
+  }
 }
 
 std::ostream&
@@ -40,20 +42,16 @@ operator<<(std::ostream& out, const Name& name)
 {
   std::string final_string = name.get_forename();
 
-  {
-    const auto [success, middle_name] = name.get_middle_name();
+  const auto middle_name = name.get_middle_name();
 
-    if (success) {
-      final_string += " " + middle_name;
-    }
+  if (middle_name) {
+    final_string += " " + *middle_name;
   }
 
-  {
-    const auto [success, last_name] = name.get_last_name();
+  const auto last_name = name.get_last_name();
 
-    if (success) {
-      final_string += " " + last_name;
-    }
+  if (last_name) {
+    final_string += " " + *last_name;
   }
 
   return out << final_string;

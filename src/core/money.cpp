@@ -8,16 +8,16 @@ Money::Money(Currency currency, int64_t value)
 {
 }
 
-std::pair<bool, Money>
+std::optional<Money>
 Money::convert_currency_to(const Currency newCurrency) const
 {
-  const auto [success, rate] =
+  const auto rate =
     ExchangeRateManager::get_conversion_rate(currency, newCurrency);
 
-  if (success) {
-    return { true, Money{ newCurrency, static_cast<int64_t>(value * rate) } };
+  if (rate) {
+    return Money{ newCurrency, value * static_cast<int64_t>(*rate) };
   } else {
-    return { false, *this };
+    return std::nullopt;
   }
 }
 

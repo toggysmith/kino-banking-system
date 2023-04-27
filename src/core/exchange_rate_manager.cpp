@@ -11,7 +11,7 @@ const std::vector<std::pair<const Currency, double>>
     { Currency::sgd, 1.3347096 }
   };
 
-std::pair<bool, double>
+std::optional<double>
 ExchangeRateManager::get_conversion_rate(const Currency& current_currency,
                                          const Currency& desired_currency)
 {
@@ -24,7 +24,7 @@ ExchangeRateManager::get_conversion_rate(const Currency& current_currency,
       auto [to_currency, rate] = exchange_rate;
 
       if (to_currency == desired_currency) {
-        return { true, rate };
+        return rate;
       }
     }
   }
@@ -38,30 +38,32 @@ ExchangeRateManager::get_conversion_rate(const Currency& current_currency,
       auto [to_currency, rate] = exchange_rate;
 
       if (to_currency == current_currency) {
-        return { true, 1 / rate };
+        return 1.0 / rate;
       }
     }
   }
 
   // Option 3: We are doing X -> Y exchange. I.e. we don't have the exchange
   // rates for either currency explicitly stored.
-  
+
   // Get exchange rate of current currency to USD
-  const auto [success1, current_currency_to_usd_rate] =
+  const auto current_currency_to_usd_rate =
     get_conversion_rate(current_currency, Currency::usd);
 
-  if (!success1)
-    return { false, 0 };
+  if (!current_currency_to_usd_rate) {
+    return std::nullopt;
+  }
 
   // Get exchange rate of USD to the desired currency
-  const auto [success2, usd_to_desired_currency_rate] =
+  const auto usd_to_desired_currency_rate =
     get_conversion_rate(Currency::usd, desired_currency);
 
-  if (!success2)
-    return { false, 0 };
+  if (!usd_to_desired_currency_rate) {
+    return std::nullopt;
+  }
 
   // Multiply the two exchange rates together to get the final exchange rate
-  return { true, current_currency_to_usd_rate * usd_to_desired_currency_rate };
+  return (*current_currency_to_usd_rate) * (*usd_to_desired_currency_rate);
 }
 
 }
