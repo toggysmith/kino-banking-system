@@ -21,7 +21,7 @@ Customer::add_account(const Account& account)
   accounts.push_back(account);
 }
 
-int
+int64_t
 Customer::get_id() const
 {
   return id;
@@ -51,6 +51,6 @@ Customer::get_branch_number() const
   return branch_number;
 }
 
-int Customer::id_counter{ 0 };
+int64_t Customer::id_counter{ 0 };
 
 }
