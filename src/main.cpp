@@ -90,12 +90,14 @@ show_view_customers_menu()
 {
   UserInterface::show_heading("Admin Portal / View Customers");
 
-  std::cout << std::left << std::setw(40) << "Name" << std::setw(20)
-            << "Date of Birth" << std::setw(20) << "Branch Number" << std::endl;
+  std::cout << std::left << std::setw(5) << "ID" << std::setw(40) << "Name"
+            << std::setw(20) << "Date of Birth" << std::setw(20)
+            << "Branch Number" << std::endl;
 
   for (const auto& customer : customers) {
-    std::cout << std::left << std::setw(40) << customer.get_name()
-              << std::setw(20) << customer.get_date_of_birth() << std::setw(20)
+    std::cout << std::left << std::setw(5) << customer.get_id() << std::setw(40)
+              << customer.get_name() << std::setw(20)
+              << customer.get_date_of_birth() << std::setw(20)
               << customer.get_branch_number() << '\n';
   }
 
