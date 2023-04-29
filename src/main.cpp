@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <cstdlib>
 #include <iomanip>
 #include <iostream>
@@ -107,6 +108,31 @@ show_view_customers_menu()
 void
 show_update_customer_records_menu()
 {
+  UserInterface::show_heading("Admin Portal / Update Customer Records");
+
+  std::cout
+    << "Enter the ID of the customer whose details you want to update: ";
+
+  int id;
+
+  std::cin >> id;
+
+  // Find the customer with that ID
+  const auto customer_with_id{ std::find_if(
+    std::begin(customers), std::end(customers), [id](const Customer& customer) {
+      return customer.get_id() == id;
+    }) };
+
+  // Print their details
+  if (customer_with_id != customers.end()) {
+    std::cout << "Name: " << customer_with_id->get_name() << '\n';
+    std::cout << "Date of Birth: " << customer_with_id->get_date_of_birth() << '\n';
+    std::cout << "Branch Number: " << customer_with_id->get_branch_number() << '\n';
+  } else {
+    std::cout << "Not found.\n";
+  }
+
+  //
 }
 
 void
