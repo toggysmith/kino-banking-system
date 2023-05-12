@@ -3,4 +3,4 @@ project(kino)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(kino src/Main.cpp)
+add_executable(kino src/main.cpp)
