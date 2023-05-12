@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: CC-BY-NC-4.0
 // Author: Toggy Smith (toggysmith@gmail.com)
 
+#include "gtest/gtest.h"
+
 #include <iostream>
 
-int main() {
-  std::cout << "Hello, world!\n";
+TEST(treter, atre) { ASSERT_EQ("a", "b"); }
 
-  return 0;
-}
+int main() { return 0; }
