@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: CC-BY-NC-4.0
 // Author: Toggy Smith (toggysmith@gmail.com)
 
-#ifndef KINO_MENU_HPP
-#define KINO_MENU_HPP
+#ifndef KINO_MENUS_MENU_HPP
+#define KINO_MENUS_MENU_HPP
 
 #include <deque>
 #include <memory>

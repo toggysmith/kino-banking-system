@@ -5,6 +5,9 @@
 
 #include <imgui.h>
 
+#include "../core/database_manager.hpp"
+
+#include <iostream>
 namespace Menus {
 
 CreateNewManagerMenu::CreateNewManagerMenu()
@@ -32,6 +35,16 @@ CreateNewManagerMenu::render(
                    const_cast<char*>(confirm_password),
                    IM_ARRAYSIZE(confirm_password),
                    ImGuiInputTextFlags_Password);
+
+  Core::DatabaseManager* database_manager =
+    Core::DatabaseManager::get_instance();
+
+  if (ImGui::Button("Submit")) {
+    std::string sql = "INSERT INTO manager VALUES('" + std::string(name) +
+                      "', '" + std::string(password) + "');";
+
+    database_manager->run_sql(sql.c_str());
+  }
 }
 
 }

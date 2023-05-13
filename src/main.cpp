@@ -7,7 +7,6 @@
 #include <GLFW/glfw3.h>
 #include <gtest/gtest.h>
 #include <imgui.h>
-#include <sqlite3.h>
 
 #include "core/window_manager.hpp"
 #include "menus/main_menu.hpp"
@@ -54,9 +53,9 @@ render()
 int
 main()
 {
-  menu_stack.push_back(std::make_unique<Menus::MainMenu>());
+  Core::WindowManager window_manager;
 
-  Core::WindowManager window_manager{};
+  menu_stack.push_back(std::make_unique<Menus::MainMenu>());
 
   std::optional<GLFWwindow*> window_optional{ window_manager.get_window() };
 

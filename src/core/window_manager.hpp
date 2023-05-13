@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: CC-BY-NC-4.0
 // Author: Toggy Smith (toggysmith@gmail.com)
 
-#ifndef KINO_WINDOW_MANAGER_HPP
-#define KINO_WINDOW_MANAGER_HPP
+#ifndef KINO_CORE_WINDOW_MANAGER_HPP
+#define KINO_CORE_WINDOW_MANAGER_HPP
 
 #include <GLFW/glfw3.h>
 

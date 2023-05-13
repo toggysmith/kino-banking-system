@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: CC-BY-NC-4.0
 // Author: Toggy Smith (toggysmith@gmail.com)
 
-#ifndef KINO_CREATE_NEW_MANAGER_MENU_HPP
-#define KINO_CREATE_NEW_MANAGER_MENU_HPP
+#ifndef KINO_MENUS_CREATE_NEW_MANAGER_MENU_HPP
+#define KINO_MENUS_CREATE_NEW_MANAGER_MENU_HPP
 
 #include <deque>
 #include <memory>
