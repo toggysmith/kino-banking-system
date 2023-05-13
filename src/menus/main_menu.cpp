@@ -6,7 +6,9 @@
 #include <iostream>
 #include <memory>
 
+#include "admin_menu.hpp"
 #include "customer_menu.hpp"
+#include "manager_menu.hpp"
 
 namespace Menus {
 
@@ -22,11 +24,10 @@ MainMenu::render(std::deque<std::unique_ptr<Menu>>& menu_stack) const
 
   if (ImGui::Button("Customer")) {
     menu_stack.push_front(std::make_unique<CustomerMenu>());
-    std::cout << menu_stack.size() << std::endl;
   } else if (ImGui::Button("Manager")) {
-    std::cout << "Manager\n";
+    menu_stack.push_front(std::make_unique<ManagerMenu>());
   } else if (ImGui::Button("Admin")) {
-    std::cout << "Admin\n";
+    menu_stack.push_front(std::make_unique<AdminMenu>());
   }
 }
 
