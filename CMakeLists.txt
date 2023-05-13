@@ -46,6 +46,11 @@ target_include_directories(ImGuiBackends PUBLIC ${IMGUI_PATH})
 target_link_libraries(ImGuiBackends glfw)
 
 ############################################################################################################################################
+# SQLite 3
+############################################################################################################################################
+find_package(SQLite3)
+
+############################################################################################################################################
 # Main executable
 ############################################################################################################################################
 add_executable(kino src/main.cpp src/core/window_manager.hpp src/core/window_manager.cpp)
@@ -56,8 +61,9 @@ target_link_libraries(
         ${OPENGL_gl_LIBRARY}
         ImGui
         ImGuiBackends
+        ${SQLite3_LIBRARIES}
 )
-target_include_directories(kino PUBLIC ${IMGUI_PATH} ${IMGUI_BACKENDS_PATH})
+target_include_directories(kino PUBLIC ${IMGUI_PATH} ${IMGUI_BACKENDS_PATH} ${SQLite3_INCLUDE_DIRS})
 
 ############################################################################################################################################
 # Test runner executable
