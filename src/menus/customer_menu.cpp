@@ -13,9 +13,7 @@ CustomerMenu::CustomerMenu()
 void
 CustomerMenu::render(std::deque<std::unique_ptr<Menu>>& menu_stack) const
 {
-  if (ImGui::Button("Back")) {
-    menu_stack.pop_front();
-  }
+  Menu::render(menu_stack);
 }
 
 }

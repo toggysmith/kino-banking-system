@@ -100,14 +100,16 @@ WindowManager::get_window() const
   return window_optional;
 }
 
-void WindowManager::start_frame() const
+void
+WindowManager::start_frame() const
 {
   ImGui_ImplOpenGL3_NewFrame();
   ImGui_ImplGlfw_NewFrame();
   ImGui::NewFrame();
 }
 
-void WindowManager::finish_frame() const
+void
+WindowManager::finish_frame() const
 {
   assert(window_optional);
 

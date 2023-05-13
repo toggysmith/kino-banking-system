@@ -26,11 +26,14 @@ render()
 
   std::unique_ptr<Menus::Menu>& current_state = menu_stack[0];
 
-  std::string path = "Kino Banking System - ";
+  std::string path = "Kino Banking System";
 
-  for (int i = menu_stack.size() - 1; i >= 0; i--) {
+  if (menu_stack.size() > 1) {
+    path += " - ";
+  }
+
+  for (int i = menu_stack.size() - 2; i >= 0; i--) {
     path += menu_stack[i]->name;
-    path += " Menu";
 
     if (i != 0) {
       path += " / ";
