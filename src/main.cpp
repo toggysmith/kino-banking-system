@@ -1,10 +1,35 @@
 // SPDX-License-Identifier: CC-BY-NC-4.0
 // Author: Toggy Smith (toggysmith@gmail.com)
 
-#include "gtest/gtest.h"
+#include <GLFW/glfw3.h>
+#include <gtest/gtest.h>
+#include <imgui.h>
 
-#include <iostream>
+#include "core/window_manager.hpp"
 
-TEST(treter, atre) { ASSERT_EQ("a", "b"); }
+int
+main()
+{
+  Core::WindowManager window_manager{};
 
-int main() { return 0; }
+  std::optional<GLFWwindow*> window_optional{ window_manager.get_window() };
+
+  if (!window_optional) {
+    return EXIT_FAILURE;
+  }
+
+  GLFWwindow* window = *window_optional;
+
+  while (!glfwWindowShouldClose(window)) {
+    glfwPollEvents();
+
+    window_manager.render([]() {
+      bool is_open{ true };
+      ImGui::Begin("Another Window", &is_open);
+      ImGui::Text("Hello from another window!");
+      ImGui::End();
+    });
+  }
+
+  return EXIT_SUCCESS;
+}
