@@ -7,17 +7,17 @@
 
 namespace Menus {
 
-void
-CustomerMenu::render(std::unique_ptr<Menu>& current_menu) const
+CustomerMenu::CustomerMenu()
+  : Menu("Customer")
 {
-  ImGui::Begin(
-    "Kino Banking System / Customer Menu", nullptr, main_window_flags);
+}
 
+void
+CustomerMenu::render(std::deque<std::unique_ptr<Menu>>& menu_stack) const
+{
   if (ImGui::Button("Back")) {
-    current_menu = std::make_unique<MainMenu>();
+    menu_stack.pop_front();
   }
-
-  ImGui::End();
 }
 
 }

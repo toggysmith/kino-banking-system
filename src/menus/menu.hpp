@@ -4,23 +4,24 @@
 #ifndef KINO_MENU_HPP
 #define KINO_MENU_HPP
 
-#include <imgui.h>
+#include <deque>
 #include <memory>
 #include <string>
+#include <string_view>
+
+#include <imgui.h>
 
 namespace Menus {
 
 class Menu
 {
 public:
+  explicit Menu(std::string_view name);
   virtual ~Menu() = default;
 
-  virtual void render(std::unique_ptr<Menu>&) const = 0;
+  virtual void render(std::deque<std::unique_ptr<Menu>>&) const = 0;
 
-protected:
-  const static ImGuiWindowFlags main_window_flags =
-    ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse |
-    ImGuiWindowFlags_NoMove;
+  const std::string name;
 };
 
 }

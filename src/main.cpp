@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: CC-BY-NC-4.0
 // Author: Toggy Smith (toggysmith@gmail.com)
 
+#include <deque>
 #include <memory>
 
 #include <GLFW/glfw3.h>
@@ -12,23 +13,46 @@
 #include "menus/main_menu.hpp"
 #include "menus/menu.hpp"
 
+std::deque<std::unique_ptr<Menus::Menu>> menu_stack;
+
 void
 render()
 {
-  static std::unique_ptr<Menus::Menu> current_menu{ new Menus::MainMenu{} };
-
   const auto io = ImGui::GetIO();
 
   ImGui::SetNextWindowSize(
     ImVec2(io.DisplaySize.x - 50, io.DisplaySize.y - 50));
   ImGui::SetNextWindowPos(ImVec2(25, 25));
 
-  current_menu->render(current_menu);
+  std::unique_ptr<Menus::Menu>& current_state = menu_stack[0];
+
+  std::string path = "Kino Banking System - ";
+
+  for (int i = menu_stack.size() - 1; i >= 0; i--) {
+    path += menu_stack[i]->name;
+    path += " Menu";
+
+    if (i != 0) {
+      path += " / ";
+    }
+  }
+
+  const ImGuiWindowFlags main_window_flags = ImGuiWindowFlags_NoResize |
+                                             ImGuiWindowFlags_NoCollapse |
+                                             ImGuiWindowFlags_NoMove;
+
+  ImGui::Begin(path.c_str(), nullptr, main_window_flags);
+
+  menu_stack[0]->render(menu_stack);
+
+  ImGui::End();
 }
 
 int
 main()
 {
+  menu_stack.push_back(std::make_unique<Menus::MainMenu>());
+
   Core::WindowManager window_manager{};
 
   std::optional<GLFWwindow*> window_optional{ window_manager.get_window() };

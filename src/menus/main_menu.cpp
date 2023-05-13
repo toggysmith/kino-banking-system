@@ -10,22 +10,24 @@
 
 namespace Menus {
 
-void
-MainMenu::render(std::unique_ptr<Menu>& current_menu) const
+MainMenu::MainMenu()
+  : Menu("Main")
 {
-  ImGui::Begin("Kino Banking System", nullptr, main_window_flags);
+}
 
+void
+MainMenu::render(std::deque<std::unique_ptr<Menu>>& menu_stack) const
+{
   ImGui::Text("What kind of user are you?");
 
   if (ImGui::Button("Customer")) {
-    current_menu = std::make_unique<CustomerMenu>();
+    menu_stack.push_front(std::make_unique<CustomerMenu>());
+    std::cout << menu_stack.size() << std::endl;
   } else if (ImGui::Button("Manager")) {
     std::cout << "Manager\n";
   } else if (ImGui::Button("Admin")) {
     std::cout << "Admin\n";
   }
-
-  ImGui::End();
 }
 
 }
