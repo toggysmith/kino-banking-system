@@ -77,7 +77,7 @@ WindowManager::WindowManager()
   /*
    * Initialize ImGui.
    */
-  ImGui::StyleColorsLight();
+  ImGui::StyleColorsDark();
   ImGui_ImplGlfw_InitForOpenGL(window, true);
   ImGui_ImplOpenGL3_Init(glsl_version);
 
@@ -100,20 +100,17 @@ WindowManager::get_window() const
   return window_optional;
 }
 
-void
-WindowManager::render(void (*rendering_logic)(void)) const
+void WindowManager::start_frame() const
 {
-  assert(window_optional);
-
-  /* Start a new ImGui frame. */
   ImGui_ImplOpenGL3_NewFrame();
   ImGui_ImplGlfw_NewFrame();
   ImGui::NewFrame();
+}
 
-  /* Rendering logic. */
-  rendering_logic();
+void WindowManager::finish_frame() const
+{
+  assert(window_optional);
 
-  /* ImGui rendering logic. */
   ImGui::Render();
   int display_w, display_h;
   glfwGetFramebufferSize(*window_optional, &display_w, &display_h);

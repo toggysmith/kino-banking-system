@@ -1,50 +1,34 @@
 // SPDX-License-Identifier: CC-BY-NC-4.0
 // Author: Toggy Smith (toggysmith@gmail.com)
 
+#include <memory>
+
 #include <GLFW/glfw3.h>
 #include <gtest/gtest.h>
 #include <imgui.h>
 #include <sqlite3.h>
 
 #include "core/window_manager.hpp"
+#include "menus/main_menu.hpp"
+#include "menus/menu.hpp"
 
-static int
-callback(void* NotUsed, int argc, char** argv, char** azColName)
+void
+render()
 {
-  int i;
-  for (i = 0; i < argc; i++) {
-    printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
-  }
-  printf("\n");
-  return 0;
+  static std::unique_ptr<Menus::Menu> current_menu{ new Menus::MainMenu{} };
+
+  const auto io = ImGui::GetIO();
+
+  ImGui::SetNextWindowSize(
+    ImVec2(io.DisplaySize.x - 50, io.DisplaySize.y - 50));
+  ImGui::SetNextWindowPos(ImVec2(25, 25));
+
+  current_menu->render(current_menu);
 }
 
 int
 main()
 {
-  sqlite3* db;
-  sqlite3_open("test.db", &db);
-
-  /* Create SQL statement */
-  char* sql = "CREATE TABLE COMPANY("
-              "ID INT PRIMARY KEY     NOT NULL,"
-              "NAME           TEXT    NOT NULL,"
-              "AGE            INT     NOT NULL,"
-              "ADDRESS        CHAR(50),"
-              "SALARY         REAL );";
-
-  /* Execute SQL statement */
-  char* zErrMsg = 0;
-  int rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
-
-  if (rc != SQLITE_OK) {
-    fprintf(stderr, "SQL error: %s\n", zErrMsg);
-    sqlite3_free(zErrMsg);
-  } else {
-    fprintf(stdout, "Table created successfully\n");
-  }
-  sqlite3_close(db);
-
   Core::WindowManager window_manager{};
 
   std::optional<GLFWwindow*> window_optional{ window_manager.get_window() };
@@ -58,12 +42,11 @@ main()
   while (!glfwWindowShouldClose(window)) {
     glfwPollEvents();
 
-    window_manager.render([]() {
-      bool is_open{ true };
-      ImGui::Begin("Another Window", &is_open);
-      ImGui::Text("Hello from another window!");
-      ImGui::End();
-    });
+    window_manager.start_frame();
+
+    render();
+
+    window_manager.finish_frame();
   }
 
   return EXIT_SUCCESS;

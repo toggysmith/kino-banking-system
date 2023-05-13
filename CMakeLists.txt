@@ -53,7 +53,7 @@ find_package(SQLite3)
 ############################################################################################################################################
 # Main executable
 ############################################################################################################################################
-add_executable(kino src/main.cpp src/core/window_manager.hpp src/core/window_manager.cpp)
+add_executable(kino src/main.cpp src/core/window_manager.hpp src/core/window_manager.cpp src/menus/menu.hpp src/menus/main_menu.hpp src/menus/main_menu.cpp src/menus/customer_menu.hpp src/menus/customer_menu.cpp)
 target_link_libraries(
         kino
         GTest::gtest_main
@@ -68,7 +68,7 @@ target_include_directories(kino PUBLIC ${IMGUI_PATH} ${IMGUI_BACKENDS_PATH} ${SQ
 ############################################################################################################################################
 # Test runner executable
 ############################################################################################################################################
-add_executable(test_runner tests/test_something.cpp src/core/window_manager.hpp src/core/window_manager.cpp)
+add_executable(test_runner tests/test_something.cpp src/core/window_manager.hpp src/core/window_manager.cpp src/menus/menu.hpp src/menus/main_menu.hpp src/menus/main_menu.cpp src/menus/customer_menu.hpp src/menus/customer_menu.cpp)
 target_link_libraries(
         test_runner
         GTest::gtest_main
@@ -76,6 +76,7 @@ target_link_libraries(
         ${OPENGL_gl_LIBRARY}
         ImGui
         ImGuiBackends
+        ${SQLite3_LIBRARIES}
 )
-target_include_directories(test_runner PUBLIC ${IMGUI_PATH} ${IMGUI_BACKENDS_PATH})
+target_include_directories(test_runner PUBLIC ${IMGUI_PATH} ${IMGUI_BACKENDS_PATH} ${SQLite3_INCLUDE_DIRS})
 gtest_discover_tests(test_runner)

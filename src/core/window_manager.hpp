@@ -12,15 +12,16 @@ namespace Core {
 
 class WindowManager
 {
-private:
-  std::optional<GLFWwindow*> window_optional;
-
 public:
   WindowManager();
   ~WindowManager();
 
   [[nodiscard]] std::optional<GLFWwindow*> get_window() const;
-  void render(void(void)) const;
+  void start_frame() const;
+  void finish_frame() const;
+
+private:
+  std::optional<GLFWwindow*> window_optional;
 };
 
 }
