@@ -6,6 +6,7 @@
 #include <imgui.h>
 
 #include "create_new_manager_menu.hpp"
+#include "view_managers_menu.hpp"
 
 namespace Menus {
 
@@ -22,7 +23,10 @@ AdminMenu::render(std::deque<std::unique_ptr<Menu>>& menu_stack) const
   if (ImGui::Button("Create new manager account")) {
     menu_stack.push_front(std::make_unique<CreateNewManagerMenu>());
   }
-  ImGui::Button("Manage existing manager accounts");
+
+  if (ImGui::Button("View manager")) {
+    menu_stack.push_front(std::make_unique<ViewManagersMenu>());
+  }
 }
 
 }
