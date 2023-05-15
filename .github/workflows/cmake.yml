@@ -23,12 +23,12 @@ jobs:
       with:
         submodules: 'true'
     
-    - name: Update Packages
+    - name: Update packages
       run: sudo apt-get update
-    
-    - name: Install Packages
-      run: sudo apt-get -y install --no-install-recommends --fix-missing libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libglew-dev libopenal-dev
-    
+
+    - name: Install packages
+      run: sudo apt-get install --fix-missing libgl1-mesa-dev
+  
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
