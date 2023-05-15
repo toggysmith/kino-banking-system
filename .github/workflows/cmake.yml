@@ -23,8 +23,11 @@ jobs:
       with:
         submodules: 'true'
     
-    - name: Install Dependencies
-      run: sudo apt-get install libgles2-mesa libgles2-mesa-[dbg,dev] xorg-dev libglu1-mesa-dev
+    - name: Update Packages
+      run: sudo apt-get update
+    
+    - name: Install Packages
+      run: sudo apt-get -y install --no-install-recommends --fix-missing libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libglew-dev libopenal-dev
     
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
