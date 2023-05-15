@@ -1,4 +1,4 @@
-# <img src="banner.svg" width="100%" />
+# <img src=".github/assets/banner.svg" width="100%" />
 
 Kino is a mock banking system built in C++ using [GLFW](https://github.com/glfw/glfw), [Dear ImGui](https://github.com/ocornut/imgui),
 and [SQLite](https://github.com/sqlite/sqlite). It's a personal learning project and may be useful if you have an interest in developing
