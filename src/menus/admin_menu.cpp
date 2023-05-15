@@ -24,7 +24,7 @@ AdminMenu::render(std::deque<std::unique_ptr<Menu>>& menu_stack) const
     menu_stack.push_front(std::make_unique<CreateNewManagerMenu>());
   }
 
-  if (ImGui::Button("View manager")) {
+  if (ImGui::Button("View managers")) {
     menu_stack.push_front(std::make_unique<ViewManagersMenu>());
   }
 }
