@@ -11,6 +11,8 @@
 #include <imgui_impl_glfw.h>
 #include <imgui_impl_opengl3.h>
 
+#include <iostream>
+
 namespace Core {
 
 constexpr static int window_width{ 800 };
@@ -23,7 +25,7 @@ WindowManager::WindowManager()
    * Initialize GLFW.
    */
   glfwSetErrorCallback([](int error, const char* description) {
-    fprintf(stderr, "GLFW Error %d: %s\n", error, description);
+    std::cerr << "GLFW Error " << error << ": " << description << '\n';
   });
 
   if (!glfwInit()) {
