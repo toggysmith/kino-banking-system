@@ -65,6 +65,10 @@ cmake -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build --config Release
 ```
 
+# Screenshots
+
+<img width="912" alt="image" src="https://github.com/toggysmith/kino-banking-system/assets/61121030/87027433-3892-4faa-ba19-ec129edc3f69">
+
 <a href="https://toggysmith.com">
   <picture>
     <source srcset="https://user-images.githubusercontent.com/61121030/234412163-6027c7f8-ffbe-4ebb-b83b-c8ce1941c5b4.png" media="(prefers-color-scheme: dark)" />
