@@ -24,7 +24,7 @@ jobs:
         submodules: 'true'
     
     - name: Install Dependencies
-      run: sudo apt-get install xorg-dev libegl1-mesa-dev cmake git libsqlite3-dev -y
+      run: sudo apt-get install xorg-dev freeglut3-dev -y
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
