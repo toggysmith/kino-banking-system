@@ -1,0 +1,221 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs"
+     viewBox="0 0 800 200">
+    <style>
+        #background {
+        border-radius: 15px;
+        }
+    </style>
+    <svg xmlns="http://www.w3.org/2000/svg" id="background" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 800 200">
+        <defs>
+            <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="ffflurry-grad" gradientTransform="rotate(270)">
+                <stop stop-color="hsl(238, 82%, 13%)" stop-opacity="1" offset="0%"></stop>
+                <stop stop-color="hsl(265, 55%, 30%)" stop-opacity="1" offset="45%"></stop>
+                <stop stop-color="hsl(265, 55%, 60%)" stop-opacity="1" offset="100%"></stop>
+            </linearGradient>
+        </defs>
+        <rect width="100%" height="100%" fill="hsl(238, 82%, 13%)"></rect>
+        <g fill="url(#ffflurry-grad)">
+            <rect width="307" height="3" x="149.5" y="45.5" rx="1.5" transform="rotate(16, 303, 47)" opacity="0.38"></rect>
+            <rect width="51" height="3" x="348.5" y="413.5" rx="1.5" transform="rotate(16, 374, 415)" opacity="0.27"></rect>
+            <rect width="178" height="3" x="261" y="759.5" rx="1.5" transform="rotate(16, 350, 761)" opacity="0.65"></rect>
+            <rect width="289" height="3" x="216.5" y="366.5" rx="1.5" transform="rotate(16, 361, 368)" opacity="0.15"></rect>
+            <rect width="227" height="3" x="276.5" y="650.5" rx="1.5" transform="rotate(16, 390, 652)" opacity="0.21"></rect>
+            <rect width="140" height="3" x="-51" y="634.5" rx="1.5" transform="rotate(16, 19, 636)" opacity="0.31"></rect>
+            <rect width="124" height="3" x="281" y="180.5" rx="1.5" transform="rotate(16, 343, 182)" opacity="0.91"></rect>
+            <rect width="196" height="3" x="311" y="273.5" rx="1.5" transform="rotate(16, 409, 275)" opacity="0.34"></rect>
+            <rect width="140" height="3" x="-36" y="775.5" rx="1.5" transform="rotate(16, 34, 777)" opacity="0.76"></rect>
+            <rect width="133" height="3" x="172.5" y="353.5" rx="1.5" transform="rotate(16, 239, 355)" opacity="0.78"></rect>
+            <rect width="259" height="3" x="213.5" y="694.5" rx="1.5" transform="rotate(16, 343, 696)" opacity="0.26"></rect>
+            <rect width="149" height="3" x="150.5" y="469.5" rx="1.5" transform="rotate(16, 225, 471)" opacity="0.16"></rect>
+            <rect width="284" height="3" x="632" y="138.5" rx="1.5" transform="rotate(16, 774, 140)" opacity="0.95"></rect>
+            <rect width="457" height="3" x="407.5" y="759.5" rx="1.5" transform="rotate(16, 636, 761)" opacity="0.54"></rect>
+            <rect width="49" height="3" x="105.5" y="258.5" rx="1.5" transform="rotate(16, 130, 260)" opacity="0.23"></rect>
+            <rect width="199" height="3" x="545.5" y="72.5" rx="1.5" transform="rotate(16, 645, 74)" opacity="0.07"></rect>
+            <rect width="357" height="3" x="223.5" y="219.5" rx="1.5" transform="rotate(16, 402, 221)" opacity="0.33"></rect>
+            <rect width="428" height="3" x="-185" y="294.5" rx="1.5" transform="rotate(16, 29, 296)" opacity="0.48"></rect>
+            <rect width="118" height="3" x="143" y="100.5" rx="1.5" transform="rotate(16, 202, 102)" opacity="0.68"></rect>
+            <rect width="338" height="3" x="83" y="662.5" rx="1.5" transform="rotate(16, 252, 664)" opacity="0.61"></rect>
+            <rect width="307" height="3" x="595.5" y="775.5" rx="1.5" transform="rotate(16, 749, 777)" opacity="0.93"></rect>
+            <rect width="196" height="3" x="157" y="425.5" rx="1.5" transform="rotate(16, 255, 427)" opacity="0.56"></rect>
+            <rect width="279" height="3" x="-4.5" y="727.5" rx="1.5" transform="rotate(16, 135, 729)" opacity="0.71"></rect>
+            <rect width="184" height="3" x="335" y="593.5" rx="1.5" transform="rotate(16, 427, 595)" opacity="0.65"></rect>
+            <rect width="111" height="3" x="-12.5" y="29.5" rx="1.5" transform="rotate(16, 43, 31)" opacity="0.24"></rect>
+            <rect width="590" height="3" x="352" y="548.5" rx="1.5" transform="rotate(16, 647, 550)" opacity="0.90"></rect>
+            <rect width="177" height="3" x="29.5" y="637.5" rx="1.5" transform="rotate(16, 118, 639)" opacity="0.53"></rect>
+            <rect width="286" height="3" x="386" y="268.5" rx="1.5" transform="rotate(16, 529, 270)" opacity="0.99"></rect>
+            <rect width="583" height="3" x="270.5" y="39.5" rx="1.5" transform="rotate(16, 562, 41)" opacity="0.80"></rect>
+            <rect width="333" height="3" x="565.5" y="166.5" rx="1.5" transform="rotate(16, 732, 168)" opacity="0.56"></rect>
+            <rect width="99" height="3" x="589.5" y="227.5" rx="1.5" transform="rotate(16, 639, 229)" opacity="0.94"></rect>
+            <rect width="158" height="3" x="199" y="13.5" rx="1.5" transform="rotate(16, 278, 15)" opacity="0.25"></rect>
+            <rect width="270" height="3" x="158" y="141.5" rx="1.5" transform="rotate(16, 293, 143)" opacity="0.59"></rect>
+            <rect width="60" height="3" x="695" y="55.5" rx="1.5" transform="rotate(16, 725, 57)" opacity="0.43"></rect>
+            <rect width="113" height="3" x="57.5" y="759.5" rx="1.5" transform="rotate(16, 114, 761)" opacity="0.83"></rect>
+            <rect width="213" height="3" x="165.5" y="86.5" rx="1.5" transform="rotate(16, 272, 88)" opacity="0.29"></rect>
+            <rect width="34" height="3" x="285" y="488.5" rx="1.5" transform="rotate(16, 302, 490)" opacity="0.11"></rect>
+            <rect width="43" height="3" x="247.5" y="574.5" rx="1.5" transform="rotate(16, 269, 576)" opacity="0.28"></rect>
+            <rect width="415" height="3" x="-94.5" y="199.5" rx="1.5" transform="rotate(16, 113, 201)" opacity="0.78"></rect>
+            <rect width="195" height="3" x="599.5" y="470.5" rx="1.5" transform="rotate(16, 697, 472)" opacity="0.28"></rect>
+            <rect width="286" height="3" x="568" y="659.5" rx="1.5" transform="rotate(16, 711, 661)" opacity="0.85"></rect>
+            <rect width="321" height="3" x="318.5" y="537.5" rx="1.5" transform="rotate(16, 479, 539)" opacity="0.73"></rect>
+            <rect width="186" height="3" x="588" y="35.5" rx="1.5" transform="rotate(16, 681, 37)" opacity="0.90"></rect>
+            <rect width="306" height="3" x="625" y="414.5" rx="1.5" transform="rotate(16, 778, 416)" opacity="0.87"></rect>
+            <rect width="195" height="3" x="679.5" y="733.5" rx="1.5" transform="rotate(16, 777, 735)" opacity="0.62"></rect>
+            <rect width="383" height="3" x="503.5" y="405.5" rx="1.5" transform="rotate(16, 695, 407)" opacity="0.35"></rect>
+            <rect width="221" height="3" x="57.5" y="182.5" rx="1.5" transform="rotate(16, 168, 184)" opacity="0.52"></rect>
+            <rect width="45" height="3" x="225.5" y="170.5" rx="1.5" transform="rotate(16, 248, 172)" opacity="0.37"></rect>
+            <rect width="231" height="3" x="94.5" y="44.5" rx="1.5" transform="rotate(16, 210, 46)" opacity="0.98"></rect>
+            <rect width="161" height="3" x="50.5" y="779.5" rx="1.5" transform="rotate(16, 131, 781)" opacity="0.38"></rect>
+            <rect width="239" height="3" x="-62.5" y="722.5" rx="1.5" transform="rotate(16, 57, 724)" opacity="0.51"></rect>
+            <rect width="88" height="3" x="64" y="135.5" rx="1.5" transform="rotate(16, 108, 137)" opacity="0.70"></rect>
+            <rect width="57" height="3" x="155.5" y="598.5" rx="1.5" transform="rotate(16, 184, 600)" opacity="0.38"></rect>
+            <rect width="271" height="3" x="-64.5" y="154.5" rx="1.5" transform="rotate(16, 71, 156)" opacity="0.25"></rect>
+            <rect width="43" height="3" x="144.5" y="670.5" rx="1.5" transform="rotate(16, 166, 672)" opacity="0.35"></rect>
+            <rect width="270" height="3" x="355" y="411.5" rx="1.5" transform="rotate(16, 490, 413)" opacity="0.85"></rect>
+            <rect width="247" height="3" x="343.5" y="238.5" rx="1.5" transform="rotate(16, 467, 240)" opacity="0.47"></rect>
+            <rect width="329" height="3" x="448.5" y="277.5" rx="1.5" transform="rotate(16, 613, 279)" opacity="0.62"></rect>
+            <rect width="575" height="3" x="117.5" y="100.5" rx="1.5" transform="rotate(16, 405, 102)" opacity="0.59"></rect>
+            <rect width="199" height="3" x="334.5" y="765.5" rx="1.5" transform="rotate(16, 434, 767)" opacity="0.59"></rect>
+            <rect width="37" height="3" x="26.5" y="177.5" rx="1.5" transform="rotate(16, 45, 179)" opacity="0.49"></rect>
+            <rect width="55" height="3" x="133.5" y="33.5" rx="1.5" transform="rotate(16, 161, 35)" opacity="0.61"></rect>
+            <rect width="607" height="3" x="169.5" y="690.5" rx="1.5" transform="rotate(16, 473, 692)" opacity="0.16"></rect>
+            <rect width="344" height="3" x="427" y="394.5" rx="1.5" transform="rotate(16, 599, 396)" opacity="0.61"></rect>
+            <rect width="353" height="3" x="598.5" y="246.5" rx="1.5" transform="rotate(16, 775, 248)" opacity="0.56"></rect>
+            <rect width="118" height="3" x="129" y="142.5" rx="1.5" transform="rotate(16, 188, 144)" opacity="0.87"></rect>
+            <rect width="85" height="3" x="644.5" y="740.5" rx="1.5" transform="rotate(16, 687, 742)" opacity="0.17"></rect>
+            <rect width="529" height="3" x="303.5" y="496.5" rx="1.5" transform="rotate(16, 568, 498)" opacity="0.88"></rect>
+            <rect width="86" height="3" x="274" y="407.5" rx="1.5" transform="rotate(16, 317, 409)" opacity="0.40"></rect>
+            <rect width="150" height="3" x="-2" y="380.5" rx="1.5" transform="rotate(16, 73, 382)" opacity="0.57"></rect>
+            <rect width="113" height="3" x="720.5" y="333.5" rx="1.5" transform="rotate(16, 777, 335)" opacity="0.62"></rect>
+            <rect width="169" height="3" x="81.5" y="472.5" rx="1.5" transform="rotate(16, 166, 474)" opacity="0.82"></rect>
+            <rect width="126" height="3" x="118" y="279.5" rx="1.5" transform="rotate(16, 181, 281)" opacity="0.21"></rect>
+            <rect width="229" height="3" x="436.5" y="742.5" rx="1.5" transform="rotate(16, 551, 744)" opacity="1.00"></rect>
+            <rect width="83" height="3" x="281.5" y="531.5" rx="1.5" transform="rotate(16, 323, 533)" opacity="0.83"></rect>
+            <rect width="92" height="3" x="733" y="623.5" rx="1.5" transform="rotate(16, 779, 625)" opacity="0.67"></rect>
+            <rect width="127" height="3" x="521.5" y="324.5" rx="1.5" transform="rotate(16, 585, 326)" opacity="0.47"></rect>
+            <rect width="449" height="3" x="246.5" y="38.5" rx="1.5" transform="rotate(16, 471, 40)" opacity="0.49"></rect>
+            <rect width="244" height="3" x="-87" y="458.5" rx="1.5" transform="rotate(16, 35, 460)" opacity="0.43"></rect>
+            <rect width="313" height="3" x="585.5" y="380.5" rx="1.5" transform="rotate(16, 742, 382)" opacity="0.94"></rect>
+            <rect width="114" height="3" x="107" y="777.5" rx="1.5" transform="rotate(16, 164, 779)" opacity="0.28"></rect>
+            <rect width="383" height="3" x="-155.5" y="98.5" rx="1.5" transform="rotate(16, 36, 100)" opacity="0.52"></rect>
+            <rect width="311" height="3" x="613.5" y="683.5" rx="1.5" transform="rotate(16, 769, 685)" opacity="0.81"></rect>
+            <rect width="169" height="3" x="336.5" y="448.5" rx="1.5" transform="rotate(16, 421, 450)" opacity="0.39"></rect>
+            <rect width="62" height="3" x="731" y="466.5" rx="1.5" transform="rotate(16, 762, 468)" opacity="0.17"></rect>
+            <rect width="136" height="3" x="-46" y="387.5" rx="1.5" transform="rotate(16, 22, 389)" opacity="0.13"></rect>
+            <rect width="372" height="3" x="-121" y="245.5" rx="1.5" transform="rotate(16, 65, 247)" opacity="0.55"></rect>
+            <rect width="101" height="3" x="151.5" y="8.5" rx="1.5" transform="rotate(16, 202, 10)" opacity="0.37"></rect>
+            <rect width="323" height="3" x="110.5" y="752.5" rx="1.5" transform="rotate(16, 272, 754)" opacity="0.08"></rect>
+            <rect width="174" height="3" x="-3" y="774.5" rx="1.5" transform="rotate(16, 84, 776)" opacity="0.67"></rect>
+            <rect width="365" height="3" x="-26.5" y="396.5" rx="1.5" transform="rotate(16, 156, 398)" opacity="0.28"></rect>
+            <rect width="245" height="3" x="87.5" y="767.5" rx="1.5" transform="rotate(16, 210, 769)" opacity="0.36"></rect>
+            <rect width="171" height="3" x="338.5" y="169.5" rx="1.5" transform="rotate(16, 424, 171)" opacity="0.49"></rect>
+            <rect width="119" height="3" x="662.5" y="597.5" rx="1.5" transform="rotate(16, 722, 599)" opacity="0.11"></rect>
+            <rect width="52" height="3" x="94" y="525.5" rx="1.5" transform="rotate(16, 120, 527)" opacity="0.70"></rect>
+            <rect width="82" height="3" x="202" y="33.5" rx="1.5" transform="rotate(16, 243, 35)" opacity="0.53"></rect>
+            <rect width="62" height="3" x="325" y="470.5" rx="1.5" transform="rotate(16, 356, 472)" opacity="0.81"></rect>
+            <rect width="259" height="3" x="311.5" y="373.5" rx="1.5" transform="rotate(16, 441, 375)" opacity="0.64"></rect>
+            <rect width="659" height="3" x="300.5" y="652.5" rx="1.5" transform="rotate(16, 630, 654)" opacity="0.77"></rect>
+            <rect width="75" height="3" x="737.5" y="45.5" rx="1.5" transform="rotate(16, 775, 47)" opacity="0.70"></rect>
+            <rect width="453" height="3" x="234.5" y="312.5" rx="1.5" transform="rotate(16, 461, 314)" opacity="0.67"></rect>
+            <rect width="67" height="3" x="511.5" y="609.5" rx="1.5" transform="rotate(16, 545, 611)" opacity="0.36"></rect>
+            <rect width="459" height="3" x="287.5" y="181.5" rx="1.5" transform="rotate(16, 517, 183)" opacity="0.29"></rect>
+            <rect width="128" height="3" x="213" y="379.5" rx="1.5" transform="rotate(16, 277, 381)" opacity="0.80"></rect>
+            <rect width="50" height="3" x="301" y="606.5" rx="1.5" transform="rotate(16, 326, 608)" opacity="0.30"></rect>
+            <rect width="429" height="3" x="-182.5" y="574.5" rx="1.5" transform="rotate(16, 32, 576)" opacity="0.77"></rect>
+            <rect width="160" height="3" x="494" y="218.5" rx="1.5" transform="rotate(16, 574, 220)" opacity="0.08"></rect>
+            <rect width="72" height="3" x="-22" y="186.5" rx="1.5" transform="rotate(16, 14, 188)" opacity="0.48"></rect>
+            <rect width="287" height="3" x="382.5" y="359.5" rx="1.5" transform="rotate(16, 526, 361)" opacity="0.69"></rect>
+            <rect width="59" height="3" x="696.5" y="319.5" rx="1.5" transform="rotate(16, 726, 321)" opacity="0.90"></rect>
+            <rect width="145" height="3" x="37.5" y="329.5" rx="1.5" transform="rotate(16, 110, 331)" opacity="0.71"></rect>
+            <rect width="335" height="3" x="80.5" y="281.5" rx="1.5" transform="rotate(16, 248, 283)" opacity="0.09"></rect>
+            <rect width="161" height="3" x="641.5" y="249.5" rx="1.5" transform="rotate(16, 722, 251)" opacity="0.39"></rect>
+            <rect width="402" height="3" x="481" y="199.5" rx="1.5" transform="rotate(16, 682, 201)" opacity="0.11"></rect>
+            <rect width="221" height="3" x="151.5" y="487.5" rx="1.5" transform="rotate(16, 262, 489)" opacity="0.88"></rect>
+            <rect width="291" height="3" x="62.5" y="221.5" rx="1.5" transform="rotate(16, 208, 223)" opacity="0.16"></rect>
+            <rect width="209" height="3" x="266.5" y="29.5" rx="1.5" transform="rotate(16, 371, 31)" opacity="0.76"></rect>
+            <rect width="129" height="3" x="321.5" y="321.5" rx="1.5" transform="rotate(16, 386, 323)" opacity="0.83"></rect>
+            <rect width="165" height="3" x="-65.5" y="718.5" rx="1.5" transform="rotate(16, 17, 720)" opacity="0.49"></rect>
+            <rect width="45" height="3" x="23.5" y="516.5" rx="1.5" transform="rotate(16, 46, 518)" opacity="0.50"></rect>
+            <rect width="220" height="3" x="238" y="256.5" rx="1.5" transform="rotate(16, 348, 258)" opacity="0.85"></rect>
+            <rect width="90" height="3" x="52" y="688.5" rx="1.5" transform="rotate(16, 97, 690)" opacity="0.19"></rect>
+            <rect width="398" height="3" x="112" y="317.5" rx="1.5" transform="rotate(16, 311, 319)" opacity="0.56"></rect>
+            <rect width="195" height="3" x="106.5" y="425.5" rx="1.5" transform="rotate(16, 204, 427)" opacity="0.42"></rect>
+            <rect width="375" height="3" x="-80.5" y="449.5" rx="1.5" transform="rotate(16, 107, 451)" opacity="0.69"></rect>
+            <rect width="79" height="3" x="632.5" y="130.5" rx="1.5" transform="rotate(16, 672, 132)" opacity="0.35"></rect>
+            <rect width="251" height="3" x="628.5" y="533.5" rx="1.5" transform="rotate(16, 754, 535)" opacity="0.37"></rect>
+            <rect width="233" height="3" x="372.5" y="120.5" rx="1.5" transform="rotate(16, 489, 122)" opacity="0.70"></rect>
+            <rect width="164" height="3" x="591" y="289.5" rx="1.5" transform="rotate(16, 673, 291)" opacity="0.65"></rect>
+            <rect width="311" height="3" x="181.5" y="101.5" rx="1.5" transform="rotate(16, 337, 103)" opacity="0.83"></rect>
+            <rect width="69" height="3" x="152.5" y="524.5" rx="1.5" transform="rotate(16, 187, 526)" opacity="0.84"></rect>
+            <rect width="130" height="3" x="83" y="104.5" rx="1.5" transform="rotate(16, 148, 106)" opacity="0.91"></rect>
+            <rect width="134" height="3" x="221" y="231.5" rx="1.5" transform="rotate(16, 288, 233)" opacity="0.12"></rect>
+            <rect width="192" height="3" x="548" y="13.5" rx="1.5" transform="rotate(16, 644, 15)" opacity="0.54"></rect>
+            <rect width="292" height="3" x="43" y="718.5" rx="1.5" transform="rotate(16, 189, 720)" opacity="0.69"></rect>
+            <rect width="67" height="3" x="601.5" y="451.5" rx="1.5" transform="rotate(16, 635, 453)" opacity="0.98"></rect>
+            <rect width="228" height="3" x="-20" y="731.5" rx="1.5" transform="rotate(16, 94, 733)" opacity="0.77"></rect>
+            <rect width="428" height="3" x="179" y="521.5" rx="1.5" transform="rotate(16, 393, 523)" opacity="0.89"></rect>
+            <rect width="180" height="3" x="511" y="165.5" rx="1.5" transform="rotate(16, 601, 167)" opacity="0.66"></rect>
+            <rect width="268" height="3" x="167" y="448.5" rx="1.5" transform="rotate(16, 301, 450)" opacity="0.87"></rect>
+            <rect width="201" height="3" x="135.5" y="94.5" rx="1.5" transform="rotate(16, 236, 96)" opacity="0.97"></rect>
+            <rect width="43" height="3" x="476.5" y="464.5" rx="1.5" transform="rotate(16, 498, 466)" opacity="0.19"></rect>
+            <rect width="249" height="3" x="-28.5" y="586.5" rx="1.5" transform="rotate(16, 96, 588)" opacity="0.43"></rect>
+            <rect width="203" height="3" x="132.5" y="538.5" rx="1.5" transform="rotate(16, 234, 540)" opacity="0.57"></rect>
+            <rect width="385" height="3" x="391.5" y="108.5" rx="1.5" transform="rotate(16, 584, 110)" opacity="0.29"></rect>
+            <rect width="62" height="3" x="635" y="352.5" rx="1.5" transform="rotate(16, 666, 354)" opacity="0.73"></rect>
+            <rect width="89" height="3" x="8.5" y="658.5" rx="1.5" transform="rotate(16, 53, 660)" opacity="0.34"></rect>
+            <rect width="421" height="3" x="-23.5" y="336.5" rx="1.5" transform="rotate(16, 187, 338)" opacity="0.44"></rect>
+            <rect width="209" height="3" x="611.5" y="709.5" rx="1.5" transform="rotate(16, 716, 711)" opacity="0.83"></rect>
+            <rect width="379" height="3" x="-81.5" y="52.5" rx="1.5" transform="rotate(16, 108, 54)" opacity="0.38"></rect>
+        </g>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs"
+         viewBox="0 0 800 200">
+        <foreignObject width="100%" height="100%">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <style>
+                    .container {
+                    font-family:
+                    system-ui,
+                    -apple-system,
+                    'Segoe UI',
+                    Roboto,
+                    Helvetica,
+                    Arial,
+                    sans-serif,
+                    'Apple Color Emoji',
+                    'Segoe UI Emoji';
+                    display: flex;
+                    flex-direction: column;
+                    align-items: start;
+                    padding-top: 45px;
+                    padding-bottom: 45px;
+                    padding-left: 45px;
+                    padding-right: 45px;
+                    width: 100%;
+                    height: 140px;
+                    background: transparent;
+                    color: white;
+                    text-align: center;
+                    }
+
+                    h1 {
+                    font-size: 50px;
+                    letter-spacing: 5px;
+                    margin: 0;
+                    font-weight: 800;
+                    }
+
+                    p {
+                    font-size: 40px;
+                    letter-spacing: 5px;
+                    margin: 0;
+                    }
+                </style>
+                <div class="container">
+                    <h1>kino.</h1>
+                    <p>a mock banking system</p>
+                </div>
+            </div>
+        </foreignObject>
+    </svg>
+</svg>
