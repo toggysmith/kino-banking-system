@@ -5,6 +5,8 @@
 
 #include <imgui.h>
 
+#include <vector>
+
 #include "../core/database_manager.hpp"
 
 namespace Menus {
