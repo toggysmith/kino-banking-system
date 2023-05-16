@@ -6,13 +6,18 @@
 
 #include <sqlite3.h>
 
+#include <optional>
+#include <string>
+#include <vector>
+
 namespace Core {
 
 class DatabaseManager
 {
 public:
   static DatabaseManager* get_instance();
-  void run_sql(const char*);
+  std::optional<std::vector<std::vector<std::optional<std::string>>>> run_sql(
+    const char*);
 
   DatabaseManager(DatabaseManager&) = delete;
   void operator=(const DatabaseManager&) = delete;
