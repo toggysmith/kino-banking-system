@@ -26,6 +26,8 @@ ViewManagersMenu::render(std::deque<std::unique_ptr<Menu>>& menu_stack) const
   const auto results = database_manager->run_sql("SELECT * FROM manager");
 
   if (results) {
+    ImGui::BeginChild(
+      "managers", ImGui::GetContentRegionAvail(), false, ImGuiWindowFlags_None);
     for (const auto& row : *results) {
       std::string row_string;
 
@@ -39,6 +41,7 @@ ViewManagersMenu::render(std::deque<std::unique_ptr<Menu>>& menu_stack) const
 
       ImGui::Text("%s", row_string.c_str());
     }
+    ImGui::EndChild();
   } else {
     ImGui::Text("There are no results.");
   }
