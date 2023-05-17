@@ -6,6 +6,7 @@
 
 #include <deque>
 #include <memory>
+#include <optional>
 #include <string>
 #include <string_view>
 
@@ -20,6 +21,11 @@ public:
   virtual void render(std::deque<std::unique_ptr<Menu>>&) const;
 
   const std::string name;
+
+protected:
+  static void show_table(
+    const std::vector<std::string>&,
+    const std::vector<std::vector<std::optional<std::string>>>&);
 };
 
 }

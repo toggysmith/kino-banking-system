@@ -25,25 +25,16 @@ ViewManagersMenu::render(std::deque<std::unique_ptr<Menu>>& menu_stack) const
 
   const auto results = database_manager->run_sql("SELECT * FROM manager");
 
-  if (results) {
-    ImGui::BeginChild(
-      "managers", ImGui::GetContentRegionAvail(), false, ImGuiWindowFlags_None);
-    for (const auto& row : *results) {
-      std::string row_string;
-
-      for (const auto& column : row) {
-        if (column) {
-          row_string += *column + " ";
-        } else {
-          row_string += "NULL ";
-        }
-      }
-
-      ImGui::Text("%s", row_string.c_str());
-    }
-    ImGui::EndChild();
-  } else {
+  // If there are no results, show a message indicating this
+  if (!results) {
     ImGui::Text("There are no results.");
+    return;
+  }
+  // If there are results, show them
+  else {
+    std::vector<std::string> column_names = { "Name", "Password" };
+
+    show_table(column_names, *results);
   }
 }
 
