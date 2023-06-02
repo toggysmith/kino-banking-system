@@ -10,6 +10,8 @@
 #include <string>
 #include <string_view>
 
+#include "../core/database_manager.hpp"
+
 namespace Menus {
 
 class Menu
@@ -25,16 +27,13 @@ public:
 protected:
   struct TableActionButton;
 
-  typedef std::optional<std::string> table_value_t;
-  typedef std::vector<table_value_t> table_row_t;
-  typedef std::vector<table_row_t> table_data_t;
-  typedef std::vector<std::string> table_column_names_t;
-  typedef std::vector<TableActionButton> table_action_buttons_t;
+  using TableActionButtons = std::vector<TableActionButton>;
 
-  static void show_table(const table_column_names_t&,
-                         const table_data_t&,
-                         const table_action_buttons_t&);
-  static void show_table(const table_column_names_t&, const table_data_t&);
+  static void show_table(const Core::DatabaseManager::ColumnNames&,
+                         const Core::DatabaseManager::TableData&,
+                         const TableActionButtons&);
+  static void show_table(const Core::DatabaseManager::ColumnNames&,
+                         const Core::DatabaseManager::TableData&);
 };
 
 }

@@ -27,13 +27,13 @@ Menu::render(std::deque<std::unique_ptr<Menu>>& menu_stack) const
 struct Menu::TableActionButton
 {
   const std::string name;
-  const std::function<void(table_row_t&)> callback;
+  const std::function<void(Core::DatabaseManager::RowValues&)> callback;
 };
 
 void
-Menu::show_table(const table_column_names_t& column_names,
-                 const table_data_t& data,
-                 const table_action_buttons_t& action_buttons)
+Menu::show_table(const Core::DatabaseManager::ColumnNames& column_names,
+                 const Core::DatabaseManager::TableData& data,
+                 const TableActionButtons& action_buttons)
 {
   auto flags =
     ImGuiTableFlags_RowBg | ImGuiTableFlags_BordersV | ImGuiTableFlags_ScrollY;
@@ -72,8 +72,8 @@ Menu::show_table(const table_column_names_t& column_names,
 }
 
 void
-Menu::show_table(const table_column_names_t& column_names,
-                 const table_data_t& data)
+Menu::show_table(const Core::DatabaseManager::ColumnNames& column_names,
+                 const Core::DatabaseManager::TableData& data)
 {
   show_table(column_names, data, {});
 }
