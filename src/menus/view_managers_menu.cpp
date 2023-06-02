@@ -32,9 +32,9 @@ ViewManagersMenu::render(std::deque<std::unique_ptr<Menu>>& menu_stack) const
   }
   // If there are results, show them
   else {
-    std::vector<std::string> column_names = { "Name", "Password" };
+    const auto [column_names, table_data] = *results;
 
-    show_table(column_names, *results);
+    show_table(column_names, table_data);
   }
 }
 

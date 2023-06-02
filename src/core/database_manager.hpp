@@ -15,9 +15,14 @@ namespace Core {
 class DatabaseManager
 {
 public:
+  using ColumnNames = std::vector<std::string>;
+  using CellValue = std::optional<std::string>;
+  using RowValues = std::vector<CellValue>;
+  using TableData = std::vector<RowValues>;
+  using Table = std::pair<ColumnNames, TableData>;
+
   static DatabaseManager* get_instance();
-  std::optional<std::vector<std::vector<std::optional<std::string>>>> run_sql(
-    const char*);
+  std::optional<Table> run_sql(const char*);
 
   DatabaseManager(DatabaseManager&) = delete;
   void operator=(const DatabaseManager&) = delete;

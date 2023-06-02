@@ -55,6 +55,30 @@ WindowManager::WindowManager()
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 #endif
 
+  /**
+   * Get main Mac monitor. This is so we can set it as the default screen
+   * during development.
+   */
+#ifdef DOG
+  int number_of_monitors{};
+
+  GLFWmonitor** monitors = glfwGetMonitors(&number_of_monitors);
+
+  int mac_monitor_x_position{ 0 };
+  int mac_monitor_y_position{ 0 };
+
+  for (int i = 0; i < number_of_monitors; i++) {
+    std::string monitor_name{ glfwGetMonitorName((GLFWmonitor*)monitors[i]) };
+
+    if (monitor_name == "Built-in Retina Display") {
+      glfwGetMonitorPos(
+        monitors[i], &mac_monitor_x_position, &mac_monitor_y_position);
+
+      break;
+    }
+  }
+#endif
+
   /*
    * Create GLFW window.
    */
@@ -63,6 +87,10 @@ WindowManager::WindowManager()
   if (window == nullptr) {
     window_optional = std::nullopt;
   }
+#ifdef DOG
+  glfwSetWindowPos(window, mac_monitor_x_position, mac_monitor_y_position);
+  glfwMaximizeWindow(window);
+#endif
   glfwMakeContextCurrent(window);
   glfwSwapInterval(1); // Enable vsync
 

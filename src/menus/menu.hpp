@@ -23,9 +23,18 @@ public:
   const std::string name;
 
 protected:
-  static void show_table(
-    const std::vector<std::string>&,
-    const std::vector<std::vector<std::optional<std::string>>>&);
+  struct TableActionButton;
+
+  typedef std::optional<std::string> table_value_t;
+  typedef std::vector<table_value_t> table_row_t;
+  typedef std::vector<table_row_t> table_data_t;
+  typedef std::vector<std::string> table_column_names_t;
+  typedef std::vector<TableActionButton> table_action_buttons_t;
+
+  static void show_table(const table_column_names_t&,
+                         const table_data_t&,
+                         const table_action_buttons_t&);
+  static void show_table(const table_column_names_t&, const table_data_t&);
 };
 
 }

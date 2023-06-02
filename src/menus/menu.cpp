@@ -5,6 +5,8 @@
 
 #include <imgui.h>
 
+#include <functional>
+
 namespace Menus {
 
 Menu::Menu(std::string_view name)
@@ -22,10 +24,16 @@ Menu::render(std::deque<std::unique_ptr<Menu>>& menu_stack) const
   ImGui::PopStyleColor();
 }
 
+struct Menu::TableActionButton
+{
+  const std::string name;
+  const std::function<void(table_row_t&)> callback;
+};
+
 void
-Menu::show_table(
-  const std::vector<std::string>& column_names,
-  const std::vector<std::vector<std::optional<std::string>>>& data)
+Menu::show_table(const table_column_names_t& column_names,
+                 const table_data_t& data,
+                 const table_action_buttons_t& action_buttons)
 {
   auto flags =
     ImGuiTableFlags_RowBg | ImGuiTableFlags_BordersV | ImGuiTableFlags_ScrollY;
@@ -37,6 +45,10 @@ Menu::show_table(
 
   for (const auto& column_name : column_names) {
     ImGui::TableSetupColumn(column_name.c_str());
+  }
+
+  if (!action_buttons.empty()) {
+    ImGui::TableSetupColumn("Actions");
   }
 
   ImGui::TableHeadersRow();
@@ -57,6 +69,13 @@ Menu::show_table(
   }
 
   ImGui::EndTable();
+}
+
+void
+Menu::show_table(const table_column_names_t& column_names,
+                 const table_data_t& data)
+{
+  show_table(column_names, data, {});
 }
 
 }

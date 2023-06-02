@@ -46,20 +46,20 @@ DatabaseManager::create_database()
 
   // Create the tables
   run_sql("CREATE TABLE manager("
-          "name TEXT NOT NULL,"
-          "password TEXT NOT NULL"
+          "Name TEXT NOT NULL,"
+          "Password TEXT NOT NULL"
           ");");
 }
 
-std::optional<std::vector<std::vector<std::optional<std::string>>>>
+std::optional<DatabaseManager::Table>
 DatabaseManager::run_sql(const char* sql)
 {
   char* error_message = nullptr;
 
   struct CallbackData
   {
-    std::vector<std::string> column_names;
-    std::vector<std::vector<std::optional<std::string>>> all_column_values;
+    ColumnNames column_names;
+    TableData table_data;
   } callback_data;
 
   const auto sqlite_callback = [](void* c_style_callback_data,
@@ -69,19 +69,19 @@ DatabaseManager::run_sql(const char* sql)
     // Convert from C-style data to C++-style data
     auto* callback_data = (CallbackData*)c_style_callback_data;
 
-    std::vector<std::optional<std::string>> column_values;
+    RowValues row_values;
 
     for (int i = 0; i < number_of_columns; i++) {
       char* c_style_column_value = c_style_column_values[i];
 
       if (c_style_column_value == nullptr) {
-        column_values.emplace_back(std::nullopt);
+        row_values.emplace_back(std::nullopt);
       } else {
-        column_values.emplace_back(c_style_column_value);
+        row_values.emplace_back(c_style_column_value);
       }
     }
 
-    callback_data->all_column_values.emplace_back(column_values);
+    callback_data->table_data.emplace_back(row_values);
 
     if (callback_data->column_names.empty()) {
       for (int i = 0; i < number_of_columns; i++) {
@@ -102,10 +102,12 @@ DatabaseManager::run_sql(const char* sql)
   }
 
   // Return data if it exists
-  if (callback_data.all_column_values.empty()) {
+  const auto [column_names, table_data] = callback_data;
+
+  if (table_data.empty()) {
     return std::nullopt;
   } else {
-    return callback_data.all_column_values;
+    return std::make_pair(column_names, table_data);
   }
 }
 
