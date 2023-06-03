@@ -25,15 +25,19 @@ public:
   const std::string name;
 
 protected:
-  struct TableActionButton;
+  struct TableActionButton
+  {
+    const std::string name;
+    std::function<void(int)> callback;
+  };
 
   using TableActionButtons = std::vector<TableActionButton>;
 
   static void show_table(const Core::DatabaseManager::ColumnNames&,
-                         const Core::DatabaseManager::TableData&,
+                         Core::DatabaseManager::TableData&,
                          const TableActionButtons&);
   static void show_table(const Core::DatabaseManager::ColumnNames&,
-                         const Core::DatabaseManager::TableData&);
+                         Core::DatabaseManager::TableData&);
 };
 
 }

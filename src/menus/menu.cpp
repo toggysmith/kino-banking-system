@@ -6,6 +6,7 @@
 #include <imgui.h>
 
 #include <functional>
+#include <iostream>
 
 namespace Menus {
 
@@ -24,27 +25,24 @@ Menu::render(std::deque<std::unique_ptr<Menu>>& menu_stack) const
   ImGui::PopStyleColor();
 }
 
-struct Menu::TableActionButton
-{
-  const std::string name;
-  const std::function<void(Core::DatabaseManager::RowValues&)> callback;
-};
-
 void
 Menu::show_table(const Core::DatabaseManager::ColumnNames& column_names,
-                 const Core::DatabaseManager::TableData& data,
+                 Core::DatabaseManager::TableData& data,
                  const TableActionButtons& action_buttons)
 {
   auto flags =
     ImGuiTableFlags_RowBg | ImGuiTableFlags_BordersV | ImGuiTableFlags_ScrollY;
 
-  ImGui::BeginTable("table",
-                    static_cast<int>(column_names.size()),
-                    flags,
-                    ImGui::GetContentRegionAvail());
+  ImGui::BeginTable(
+    "table",
+    static_cast<int>(column_names.size() + action_buttons.size() - 1),
+    flags,
+    ImGui::GetContentRegionAvail());
 
   for (const auto& column_name : column_names) {
-    ImGui::TableSetupColumn(column_name.c_str());
+    if (column_name != "rowid") {
+      ImGui::TableSetupColumn(column_name.c_str());
+    }
   }
 
   if (!action_buttons.empty()) {
@@ -53,19 +51,32 @@ Menu::show_table(const Core::DatabaseManager::ColumnNames& column_names,
 
   ImGui::TableHeadersRow();
 
-  for (const auto& row : data) {
+  for (auto& row : data) {
+    const int row_id{ std::stoi(*row[0]) };
+    ImGui::PushID(row_id);
+
     ImGui::TableNextRow();
 
-    for (int i = 0; i < row.size(); i++) {
+    for (int i = 1; i < row.size(); i++) {
       const auto& col = row[i];
 
-      ImGui::TableSetColumnIndex(i);
+      ImGui::TableSetColumnIndex(i - 1);
       if (col) {
         ImGui::Text("%s", (*col).c_str());
       } else {
         ImGui::Text("NULL");
       }
     }
+
+    for (int i = 0; i < action_buttons.size(); i++) {
+      ImGui::TableSetColumnIndex(row.size() - 1 + i);
+
+      if (ImGui::Button(action_buttons[i].name.c_str())) {
+        action_buttons[i].callback(std::stoi(*row[0]));
+      }
+    }
+
+    ImGui::PopID();
   }
 
   ImGui::EndTable();
@@ -73,7 +84,7 @@ Menu::show_table(const Core::DatabaseManager::ColumnNames& column_names,
 
 void
 Menu::show_table(const Core::DatabaseManager::ColumnNames& column_names,
-                 const Core::DatabaseManager::TableData& data)
+                 Core::DatabaseManager::TableData& data)
 {
   show_table(column_names, data, {});
 }
