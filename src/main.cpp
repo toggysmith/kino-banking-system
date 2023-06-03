@@ -45,7 +45,9 @@ render()
 
   ImGui::Begin(path.c_str(), nullptr, main_window_flags);
 
-  menu_stack[0]->render(menu_stack);
+  if (current_state != nullptr) {
+    current_state->render(menu_stack);
+  }
 
   ImGui::End();
 }

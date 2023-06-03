@@ -37,7 +37,8 @@ ViewManagersMenu::render(std::deque<std::unique_ptr<Menu>>& menu_stack) const
 
     // Create a callback for editing rows.
     const auto edit_callback = [&menu_stack](int row_id) {
-      menu_stack.push_front(std::make_unique<UpdateManagerMenu>(row_id));
+      menu_stack.push_front(
+        std::make_unique<UpdateManagerMenu>("manager", row_id));
     };
 
     // Create a callback for deleting rows.

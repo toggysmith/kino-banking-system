@@ -33,11 +33,31 @@ Menu::show_table(const Core::DatabaseManager::ColumnNames& column_names,
   auto flags =
     ImGuiTableFlags_RowBg | ImGuiTableFlags_BordersV | ImGuiTableFlags_ScrollY;
 
+  // Define some useful variables:
+  const bool is_row_id_in_table{ std::find(std::begin(column_names),
+                                           std::end(column_names),
+                                           "rowid") != std::end(column_names) };
+  const int number_of_needed_columns{ [&]() {
+    int number_of_columns_needed{ 0 };
+
+    number_of_columns_needed += static_cast<int>(column_names.size());
+
+    if (!action_buttons.empty()) {
+      number_of_columns_needed++;
+    }
+
+    if (is_row_id_in_table) {
+      number_of_columns_needed--;
+    }
+
+    return number_of_columns_needed;
+  }() };
+
+  // Something is wrong if there are action buttons but no row id provided.
+  assert(is_row_id_in_table || action_buttons.empty());
+
   ImGui::BeginTable(
-    "table",
-    static_cast<int>(column_names.size() + action_buttons.size() - 1),
-    flags,
-    ImGui::GetContentRegionAvail());
+    "table", number_of_needed_columns, flags, ImGui::GetContentRegionAvail());
 
   for (const auto& column_name : column_names) {
     if (column_name != "rowid") {
@@ -52,15 +72,16 @@ Menu::show_table(const Core::DatabaseManager::ColumnNames& column_names,
   ImGui::TableHeadersRow();
 
   for (auto& row : data) {
-    const int row_id{ std::stoi(*row[0]) };
+    const int row_id{ is_row_id_in_table ? std::stoi(*row[0]) : 0 };
+
     ImGui::PushID(row_id);
 
     ImGui::TableNextRow();
 
-    for (int i = 1; i < row.size(); i++) {
+    for (int i = (is_row_id_in_table ? 1 : 0); i < row.size(); i++) {
       const auto& col = row[i];
 
-      ImGui::TableSetColumnIndex(i - 1);
+      ImGui::TableSetColumnIndex(i - (is_row_id_in_table ? 1 : 0));
       if (col) {
         ImGui::Text("%s", (*col).c_str());
       } else {
@@ -68,16 +89,20 @@ Menu::show_table(const Core::DatabaseManager::ColumnNames& column_names,
       }
     }
 
-    ImGui::TableSetColumnIndex(row.size() - 1);
-    for (int i = 0; i < action_buttons.size(); i++) {
-      // Make the buttons run horizontally rather than stack vertically.
-      bool is_first_button{ i == 0 };
-      if (!is_first_button) {
-        ImGui::SameLine();
-      }
+    // Show action buttons if there are any.
+    if (!action_buttons.empty()) {
+      ImGui::TableSetColumnIndex(row.size() - 1);
 
-      if (ImGui::Button(action_buttons[i].name.c_str())) {
-        action_buttons[i].callback(std::stoi(*row[0]));
+      for (int i = 0; i < action_buttons.size(); i++) {
+        // Make the buttons run horizontally rather than stack vertically.
+        bool is_first_button{ i == 0 };
+        if (!is_first_button) {
+          ImGui::SameLine();
+        }
+
+        if (ImGui::Button(action_buttons[i].name.c_str())) {
+          action_buttons[i].callback(std::stoi(*row[0]));
+        }
       }
     }
 
