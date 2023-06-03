@@ -6,6 +6,7 @@
 #include <imgui.h>
 
 #include "../core/database_manager.hpp"
+#include "admin/update_manager_menu.hpp"
 
 #include <iostream>
 
@@ -37,6 +38,12 @@ ViewManagersMenu::render(std::deque<std::unique_ptr<Menu>>& menu_stack) const
   else {
     auto [column_names, table_data] = *results;
 
+    // Create a callback for editing rows.
+    const auto edit_callback = [&menu_stack](int row_id) {
+      using Menus::Admin::UpdateManagerMenu;
+      menu_stack.push_front(std::make_unique<UpdateManagerMenu>(row_id));
+    };
+
     // Create a callback for deleting rows.
     const auto delete_callback = [](int row_id) {
       Core::DatabaseManager* database_manager =
@@ -48,9 +55,10 @@ ViewManagersMenu::render(std::deque<std::unique_ptr<Menu>>& menu_stack) const
       database_manager->run_sql(query.c_str());
     };
 
-    TableActionButton action_button{ "Delete", delete_callback };
+    TableActionButton edit_button{ "Edit", edit_callback };
+    TableActionButton delete_button{ "Delete", delete_callback };
 
-    show_table(column_names, table_data, { action_button });
+    show_table(column_names, table_data, { edit_button, delete_button });
   }
 }
 

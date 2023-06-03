@@ -53,7 +53,7 @@ find_package(SQLite3)
 ############################################################################################################################################
 # Main executable
 ############################################################################################################################################
-add_executable(kino src/main.cpp src/core/window_manager.hpp src/core/window_manager.cpp src/menus/menu.hpp src/menus/main_menu.hpp src/menus/main_menu.cpp src/menus/customer_menu.hpp src/menus/customer_menu.cpp src/menus/menu.cpp src/menus/manager_menu.hpp src/menus/manager_menu.cpp src/menus/admin_menu.cpp src/menus/create_new_manager_menu.cpp src/menus/create_new_manager_menu.hpp src/core/database_manager.cpp src/core/database_manager.hpp src/menus/view_managers_menu.cpp src/menus/view_managers_menu.hpp)
+add_executable(kino src/main.cpp src/core/window_manager.hpp src/core/window_manager.cpp src/menus/menu.hpp src/menus/main_menu.hpp src/menus/main_menu.cpp src/menus/customer_menu.hpp src/menus/customer_menu.cpp src/menus/menu.cpp src/menus/manager_menu.hpp src/menus/manager_menu.cpp src/menus/admin_menu.cpp src/menus/create_new_manager_menu.cpp src/menus/create_new_manager_menu.hpp src/core/database_manager.cpp src/core/database_manager.hpp src/menus/view_managers_menu.cpp src/menus/view_managers_menu.hpp src/menus/admin/update_manager_menu.cpp src/menus/admin/update_manager_menu.hpp)
 target_link_libraries(
         kino
         GTest::gtest_main
@@ -68,7 +68,7 @@ target_include_directories(kino PUBLIC ${IMGUI_PATH} ${IMGUI_BACKENDS_PATH} ${SQ
 ############################################################################################################################################
 # Test runner executable
 ############################################################################################################################################
-add_executable(test_runner tests/test_something.cpp src/core/window_manager.hpp src/core/window_manager.cpp src/menus/menu.hpp src/menus/main_menu.hpp src/menus/main_menu.cpp src/menus/customer_menu.hpp src/menus/customer_menu.cpp src/menus/menu.cpp src/menus/manager_menu.hpp src/menus/manager_menu.cpp src/menus/admin_menu.cpp src/menus/create_new_manager_menu.cpp src/menus/create_new_manager_menu.hpp src/core/database_manager.cpp src/core/database_manager.hpp src/menus/view_managers_menu.cpp src/menus/view_managers_menu.hpp)
+add_executable(test_runner tests/test_something.cpp src/core/window_manager.hpp src/core/window_manager.cpp src/menus/menu.hpp src/menus/main_menu.hpp src/menus/main_menu.cpp src/menus/customer_menu.hpp src/menus/customer_menu.cpp src/menus/menu.cpp src/menus/manager_menu.hpp src/menus/manager_menu.cpp src/menus/admin_menu.cpp src/menus/create_new_manager_menu.cpp src/menus/create_new_manager_menu.hpp src/core/database_manager.cpp src/core/database_manager.hpp src/menus/view_managers_menu.cpp src/menus/view_managers_menu.hpp src/menus/admin/update_manager_menu.cpp src/menus/admin/update_manager_menu.hpp)
 target_link_libraries(
         test_runner
         GTest::gtest_main

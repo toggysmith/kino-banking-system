@@ -68,8 +68,13 @@ Menu::show_table(const Core::DatabaseManager::ColumnNames& column_names,
       }
     }
 
+    ImGui::TableSetColumnIndex(row.size() - 1);
     for (int i = 0; i < action_buttons.size(); i++) {
-      ImGui::TableSetColumnIndex(row.size() - 1 + i);
+      // Make the buttons run horizontally rather than stack vertically.
+      bool is_first_button{ i == 0 };
+      if (!is_first_button) {
+        ImGui::SameLine();
+      }
 
       if (ImGui::Button(action_buttons[i].name.c_str())) {
         action_buttons[i].callback(std::stoi(*row[0]));
