@@ -1,17 +1,15 @@
 // SPDX-License-Identifier: CC-BY-NC-4.0
 // Author: Toggy Smith (toggysmith@gmail.com)
 
-#include "create_new_manager_menu.hpp"
+#include "create_manager_menu.hpp"
 
-#include <imgui.h>
+#include "imgui.h"
 
 #include <vector>
 
-#include "../core/database_manager.hpp"
+namespace Menus::Admin {
 
-namespace Menus {
-
-CreateNewManagerMenu::CreateNewManagerMenu()
+CreateManagerMenu::CreateManagerMenu()
   : Menu("Create New Manager")
   , name("")
   , password("")
@@ -20,8 +18,7 @@ CreateNewManagerMenu::CreateNewManagerMenu()
 }
 
 void
-CreateNewManagerMenu::render(
-  std::deque<std::unique_ptr<Menu>>& menu_stack) const
+CreateManagerMenu::render(std::deque<std::unique_ptr<Menu>>& menu_stack) const
 {
   Menu::render(menu_stack);
 

@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: CC-BY-NC-4.0
 // Author: Toggy Smith (toggysmith@gmail.com)
 
-#ifndef KINO_VIEW_MANAGERS_MENU_HPP
-#define KINO_VIEW_MANAGERS_MENU_HPP
+#ifndef KINO_MENUS_ADMIN_VIEW_MANAGERS_MENU_HPP
+#define KINO_MENUS_ADMIN_VIEW_MANAGERS_MENU_HPP
 
 #include <deque>
 #include <memory>
 
-#include "menu.hpp"
+#include "../menu.hpp"
 
-namespace Menus {
+namespace Menus::Admin {
 
 class ViewManagersMenu : public Menu
 {

@@ -4,6 +4,7 @@
 #include "update_manager_menu.hpp"
 
 #include <iostream> // REMOVE
+
 namespace Menus::Admin {
 
 UpdateManagerMenu::UpdateManagerMenu(int row_id)

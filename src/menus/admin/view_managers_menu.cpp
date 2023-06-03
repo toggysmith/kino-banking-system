@@ -3,14 +3,11 @@
 
 #include "view_managers_menu.hpp"
 
-#include <imgui.h>
+#include "imgui.h"
 
-#include "../core/database_manager.hpp"
-#include "admin/update_manager_menu.hpp"
+#include "update_manager_menu.hpp"
 
-#include <iostream>
-
-namespace Menus {
+namespace Menus::Admin {
 
 ViewManagersMenu::ViewManagersMenu()
   : Menu("View Managers")
@@ -40,7 +37,6 @@ ViewManagersMenu::render(std::deque<std::unique_ptr<Menu>>& menu_stack) const
 
     // Create a callback for editing rows.
     const auto edit_callback = [&menu_stack](int row_id) {
-      using Menus::Admin::UpdateManagerMenu;
       menu_stack.push_front(std::make_unique<UpdateManagerMenu>(row_id));
     };
 

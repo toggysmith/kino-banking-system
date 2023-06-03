@@ -1,21 +1,21 @@
 // SPDX-License-Identifier: CC-BY-NC-4.0
 // Author: Toggy Smith (toggysmith@gmail.com)
 
-#ifndef KINO_MENUS_CREATE_NEW_MANAGER_MENU_HPP
-#define KINO_MENUS_CREATE_NEW_MANAGER_MENU_HPP
+#ifndef KINO_MENUS_ADMIN_CREATE_MANAGER_MENU_HPP
+#define KINO_MENUS_ADMIN_CREATE_MANAGER_MENU_HPP
 
 #include <deque>
 #include <memory>
 #include <string>
 
-#include "menu.hpp"
+#include "../menu.hpp"
 
-namespace Menus {
+namespace Menus::Admin {
 
-class CreateNewManagerMenu : public Menu
+class CreateManagerMenu : public Menu
 {
 public:
-  explicit CreateNewManagerMenu();
+  explicit CreateManagerMenu();
   void render(std::deque<std::unique_ptr<Menu>>&) const override;
 
 private:
