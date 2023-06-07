@@ -71,10 +71,12 @@ Menu::show_table(const Core::DatabaseManager::ColumnNames& column_names,
 
   ImGui::TableHeadersRow();
 
+  int imgui_id{0};
+
   for (auto& row : data) {
     const int row_id{ is_row_id_in_table ? std::stoi(*row[0]) : 0 };
 
-    ImGui::PushID(row_id);
+    ImGui::PushID(imgui_id++);
 
     ImGui::TableNextRow();
 

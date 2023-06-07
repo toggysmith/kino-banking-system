@@ -5,9 +5,12 @@
 
 #include "imgui.h"
 
-#include "../../core/database_manager.hpp"
-#include <iostream>
+#include <memory>
 #include <utility>
+// REMOVE:
+#include <iostream>
+
+#include "update_manager_field_menu.hpp"
 
 namespace Menus::Admin {
 
@@ -40,7 +43,27 @@ UpdateManagerMenu::render(std::deque<std::unique_ptr<Menu>>& menu_stack) const
   if (results) {
     auto [column_names, table_data] = *results;
 
-    show_table(column_names, table_data);
+    Core::DatabaseManager::ColumnNames new_column_names{ "rowid",
+                                                         "Field",
+                                                         "Value" };
+    Core::DatabaseManager::TableData new_table_data;
+
+    for (size_t i = 0; i < table_data[0].size(); i++) {
+      const auto column_value{ table_data[0][i] };
+      const auto column_name{ column_names[i] };
+
+      new_table_data.push_back({ std::to_string(i),
+                                 column_name,
+                                 column_value ? *column_value : "NULL" });
+    }
+
+    // Create a callback for the edit button.
+    const auto edit_callback = [&menu_stack, &new_table_data](int row_id) {
+      menu_stack.push_front(std::make_unique<UpdateManagerFieldMenu>(
+        row_id, *new_table_data[row_id][1]));
+    };
+
+    show_table(new_column_names, new_table_data, { { "Edit", edit_callback } });
   } else {
     ImGui::Text("This record does not exist.");
   }
