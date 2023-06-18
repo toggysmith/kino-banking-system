@@ -2,5 +2,11 @@
 .DS_Store
 
 # CLion
-.idea
-cmake-build-debug
+.idea/
+cmake-build-debug/
+
+# C++
+build/
+
+# Dear ImGui
+imgui.ini
