@@ -5,6 +5,9 @@
 .idea/
 cmake-build-debug/
 
+# CMake
+.cache/
+
 # C++
 build/
 
