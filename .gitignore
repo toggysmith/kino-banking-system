@@ -16,3 +16,6 @@ imgui.ini
 
 # Database (might want to push this later as a demo database)
 main.db
+
+# Neovim
+run
