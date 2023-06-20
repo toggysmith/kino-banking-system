@@ -90,3 +90,14 @@ target_link_libraries(
 )
 target_include_directories(test_runner PUBLIC ${IMGUI_PATH} ${IMGUI_BACKENDS_PATH} ${SQLite3_INCLUDE_DIRS})
 gtest_discover_tests(test_runner)
+
+############################################################################################################################################
+# Show maximum warnings
+############################################################################################################################################
+if(MSVC)
+  target_compile_options(kino PRIVATE /W4 /WX)
+  target_compile_options(test_runner PRIVATE /W4 /WX)
+else()
+  target_compile_options(kino PRIVATE -Wall -Wextra -Wpedantic -Werror)
+  target_compile_options(test_runner PRIVATE -Wall -Wextra -Wpedantic -Werror)
+endif()
